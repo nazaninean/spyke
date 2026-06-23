@@ -1,6 +1,6 @@
 # Spyke ⚡
 
-**What's spiking in brain sciences research?.**
+**What's spiking in brain sciences research?**
 
 Spyke is a live brain science paper discovery app. It pulls from three real-time sources — OpenAlex, Semantic Scholar, and bioRxiv — and presents them as a clean, fast, searchable feed organized by field.
 
