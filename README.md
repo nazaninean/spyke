@@ -1,8 +1,8 @@
 # Spyke ⚡
 
-**What's spiking in neuroscience — a Spotify-style paper discovery feed.**
+**What's spiking in brain sciences research?.**
 
-Spyke is a live neuroscience paper discovery app. It pulls from three real-time sources — OpenAlex, Semantic Scholar, and bioRxiv — and presents them as a clean, fast, searchable feed organized by field.
+Spyke is a live brain science paper discovery app. It pulls from three real-time sources — OpenAlex, Semantic Scholar, and bioRxiv — and presents them as a clean, fast, searchable feed organized by field.
 
 No backend. No API keys required. Open the page and it works.
 
@@ -38,7 +38,7 @@ All APIs are free. No keys required.
 
 ## Live
 
-**[spyke.vercel.app](https://spyke.vercel.app)** ← deploy yours here
+**[spyke.vercel.app](https://spyke-beta.vercel.app)** ← deploy yours here
 
 ---
 
