@@ -2,1170 +2,553 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAArCAYAAADIWo5HAAAP/klEQVR4nO1ae3hV1ZX/rX3Ouc+8DQEVAioqAoIWplV8AG3VilXr497aWrVaB9phGB0dx+p0enPxc7R2GNuibWHwMdNS9UahRXm/Ep4pkFQgJCEYQkjI6ybk5r7PPWfvNX8kUbGCBGn6zff1933n/nPP2Xut31n7t9daZwN/JQQ4IADg3eNVk9d0VI8FAGamobZDDPWEA5iBGQIAtCxxQzo/cwsAlKFMG2o7hpyAALMA8OGbdhqukW7NdcFQ2zEAfSgnY2YiIsXMtBqHtBAzZ2T9JUSSASCMMK/iemccF9s+QBER/6VtGroIYFAZyrR1mX1PEhHPoktMP5EEqRyAzgEAP/mlB+a0fKtmLhFxNVc7Tjocs8BZ0IwzIiDALE4mWAEOiAAHBDPTgND1gTGTZtokHHdulg0/Xyvr/nODrH9LF9pkgAo3N252AUD9saZhSoh5zKxPpImZVVzvDDGfoA3MLIhIYQgi5M/BH63fjzt4KkL6//esl3Vb1su69BY+ytu5mbdwM6/ng7yWa1PLInsuAoAr3/jBnS/Hy3gnN27fIht/ttGuuR8A9vAeAwBxn4ZgNzfPqODmkaea+3Qw6AgIgY3t3PL1BTtC7iAFVYhDGgAQEW9m1jdwzT+uS1ddXM/sXM8NxSUoYQB4seadabpwXqcEO5KIyRhidgIxW0JKF1wuh9NxAQD86fDu+vcP19oCjmmGcD8iyDG3LHPo6qk01QpxSBCR2sBNj3YkOt+t27mTAaCkpGRoCNjMm3U/Uaapvelb066etmtN8tAoP/nlb7g+Zw0fHTuTyGYLhsso2HZU1e9laa5eXFmpB5jF0n3rb+lEr3JAt5mhAdCpT4RZQAOEOhcA3K3yeCTSnUoirSKqy4KgL7Khbd9oHSzxkU9VcPNsAXpx8Zblu747zd8W4IAIBoNqSAj4ZWmYAWDZjrUbyjr2TsxyO7duytROuY8uiep26qmt3PRDpanrWaCIBS71atnjR09yPB0kUimhim1lCQIEPva+GICABk03vgAAKUuEI6lYiwlbCKFpaaSViTTpujOw1qqtsmD9fOXhzdi0v2w+AFVTWvO5hHBQBJT6/RIhn/b2XfNfW/D7V95eG949OsfIWfdeau93WcDMQd5zTuH+RgJxlrBVAnFlGJ7ALm69q9dMjIqm4gCI+ATpYmJIAOJSAMDiSqsn1nM4ARMGNEWAYDAnkVBu3XXFcaRcO/fsfDf+5LbyAAdEqb9UDhkBAIAD4xnMdPewy+e+uXFF5/upxoLhrqLXSIgftKLFTiGtBAQBJCQUWWyRifTb40eMmVTb+AEc0AXjBAbIhg0dGD09ENABoCURaezKRKFBg60UmJlYsUjBzOTAw4E750XXWLUzx2DGSbfJvxwBwaDylfrFr+8KdlLSnLdk5wp0I2JKWAognUAfjkkgYiiYyODha293XnTOuUghc+Ia6CdAQhXdP+cr+QDAMnOwK3YcTjjgES5kk5dzRZZyQtfiVq+VsdW3dJ2uP4KyzIlb7eBxRplgyBfif6r/hfNXlzwa6l1026ylI9Y/8IPxt9k9HBcanWgPkYAFyQXuPBrmLoAJC0QfEUAgsmCxS7gKh7myxgMoz0hxuD3SZffkRtWBcAPaYt3U0NNOx3o70Brr0tzeLBSncnZtuvMFNX1zQAdwxiI4KAICgYCYUPIPHiKKAzAB0LPDb503f/fGL48vHDPy+qKJKsLJT5DAIBDZsGEzTnD+YyRIDYbOLh4FANcWXd6yoWa3/vv9W5GIxKGsTEonavMa3lanQ9R5vO79I7yFbYv27DEwBSjhGR/6EUaYffCddhp92goa4pDmh09tkAfv1YimKsDsbYu8cOfIL3Vf/erDX47miQ3zZ31f5To9wmJJn+boycCAnYscPSEjT92gT3x+xbEVnuC61d+LqHTHpZ7z91+an9/x0s3/etziz6V3n4rBWEkgcIh3uPNV3sHzxJhRR9XRxTdr4+ZoIBQsuuPZq78w5enHp37LTqm0Phh1YcDORo6eVL1Lb9QmfGcg1XXpBjZZDQXZKa836u4xu3qSIxwybaazDDNb6Fex5siBpiAkcpyaZ1QuXFkKKGhPtbx1k2fKmx+mzKfAIJYAAyCMbB6J2PmxVAeO2R7hmr0mXbvua67L3umc/fz8EUueumVl0ejJtxdfoyIcFxqdXnlPAElIKND5/RUjN3JPXl26eW+vHRsRM+ICipOuXD2HkGV6BCknvG4NAgqArgk0oR0bupsgbIK7I1MJACVlJQKfoQ+DWgIAcA4mXyOgl6eRlgYMQYrCZjo5ZZZ3csuXfve9SZ0kdwdvfVgb6R0u0mySoJOHAvf/Ekjp0IWEDCcj6UvuyL8yMnfnwrtuuGr629lwwYINAQ0KEgQCQFCQkhWzUzhxsLuJn1m5SNelXq5p3uePPLBkHZhxOsXSKQOVmWngGgYf+ckvFaxbHXADILaRUU7hLiKn8ToA2vPtV/el45knXqlaqSmwpFMMz2AIEDRoYLCwYTMpKkjpqhgAVh7cfcGe9kPshMOSSrGEzQLECooVJBNIIyF0CYsuyis2Hpw068mOh0Izmx5YsraP1dMTwVMSQEQ8cM0EyY12zQ81uB5IqCgDrAFCi6HXztXyvrImU/eIBOP47Ld+caC6/t23Dm3W88gjbf7zCGQAOjSkpYnedBw6dDBYuYVHyzVcFwIAJc0/hrvCpKA0QYIytkVbG6rIgE6EPoUlADaU0DTw7Vd89Z6V5oFn72/c7OqvDk8ruk9JwPrelnNamM9hZlcFurJtW31gSztfQn68LNbiiEqH5njhvUztFJMlrsu+cs4ftm8K7z5eR7nkUfITJDAruOHE4i3vqG0N78MDF6Ri1qDB0DEaANKZRFPP8a6kDSUEMWtCYOmedXyws5E9cEENjKmISQmKyF4nHOq/Xh8zw+xbJjjzCBhY70oLP7Q7Wtm1IlXVGJGdtdnOnPlZmkc4hAFBBMUKBCIJBSHIcGr02qr6Vc4/3PejtrykmL2k4l3Ro+LKgIGB9Fexgoc8qOyo5ZXVW0RX9DgUGMR9dyjSxwFAm7ut7bgZazZhQYPOUtroTkXpd1VrCWCAAakkdGFwjsiBV3PHbqDx3QAAOj3nT0qADz4FBqWam379XtXWXy7avtz+cfkr5z1b9dvLlh3cJI5G2hSBOJeyIfoSWy2FpO0R2ZfjgtH/oQA0zn3r981HWn71m31rdA857QEtJhAYCsv3lpGAduBIbzvbsEAkSMIGARcDAOZUWvGM3RBDGk4YKppJo9CRnaprPpwsa36fC0Ue54gsWHZarW4qs5dWrXZwKKTRIHZ24CTb4EAW9Q18IwZgLuZ97bFx1xV/9WhT672beNesrGxXbj55cXHhSHznizej0JMHG1KLo1d6de9ja5N1y27yjNu+98p7H5/8x99Nv2z4BeNvPHeKiqiEcAunOmp2iOq2huoCp+eB9kh4T9ROwqU7yIYFFmrUPx/d4X6xeFoqmuipjpjxWWOcw2RCWDpLtbtY5PzP8totrxQaWZmtR/5kbGmuMdpkL/ISRnrRw29LBCBwmuEPfFYxxEwhDmlYuMas8y9eGX7ojW/Pmzpr4jCZc6+LtdqRuUWc7chSsj/dZTBJ2CycWLQjUl0wZpo/5bIc971e/q7VanazE4K9cKqjsTC6Ih2vRua8VxVPJpo70hE4YbCFDEjxqOuz3cMBIBzpremMdkGHjqSVRiKRjOx/eOmrsdaevY9tXeRYtncrWfH0tjHuUY98MX/CNxWDUHL6zgOflQgRsR/o86/UJ664MF+8MHl2S4zN6hq0Z0sQx5Cgj8pbEiZMO1cUTIh5u36qgO+F55VWeV+48UeLKlf85JlpD9vdmV6xcW+FZSTk+gyDcl/K7OpIdBVPyBrDcZlij+ZyO5zyfABHiM36ruM9LIZBpM002M4cs6FoOHK/n63l3DayeMSK1bP+vaITjMOD8fq0CfiQCDBziAHY6zLzrtktm1crTWSbMsGapp1Y24L0KHpsr5770Hv2vjVf1yeVRp5Ys2D4Yt9tP9V/e83ejka0HGtpf/rp/64nmsjOBcnypp6Ou2k4AJBywKUpB48DsJ3auhsikZ6oCZkTySTQi/Q+Anj7gwsrAFT8CejbjUqmaygpk2fSJT7tjL0MZYKImIR+lVvLyraQsj7p/EdgkVYp1th4aXWqdgwRyWu9o+/dVLUzkQxH6i/PP//vg5hoEQBpJHc1trciDVMjAgsIWJp1BQBcX7OzuycZO2yDKZUyYVt2GwBMWTTbmL45oPtCPg0ERrDcPtMW+WAI6NNxzVgRQySlQ+j8KWLDzJDMAoLlCL2oSDqs5wBg+XcWNF03bMzUOY7r/q7ynldWoSRADMBuajzQ1dXZlkCGDKGz3ZfuXggApaWQcdP8IAUL6URCunp7GwGgsvVcWT4zaH/edtigCAhSUDGzuJHGHhJQ5S54QYAE+tJa1Z+kOshALmWhNxXnZ3YuVo++87Obpq94rPDHgYB47+6X6oL3PRJFyKchGFTggMCCjkSXFa3ssePQocGGBQBjfCGfBgDdZrw6igQSlh1LNNS3EwCUBM/aB5HBNUX700u29SUCIKUUSaWgQ8BDbmSRl1siYXvhjjf4+3/4qbHswDbRlujeqLtNDpYE2RfyaWAQ+t/c9LIyAQDxSHJLa6wLBnRYsCBAI3zT/2UYACTiseouO4IM2xFUJHrPluMDGFRHyE8kA8ziq8CyVZn9FcMchVfZyFi9Mi6qWvZhdcMubU9HvZ6MxpHtzl898ZxJPzlw53PlG/ufL8WJIVseLmICkIh37mjuaIPIH6/ZbMNBekFOnmc4gHYzdryuvbsTpmm14QOYsr9cPkv+D74nOAGlRORXz+5/82kry9i0P3zQqDr2AY5E2sEZ1ZzryVl+5fnjl75/64u7qgEgEBAIBhmflpz4ShWBYO+u2Nty1S2d1jgUEZPtIJduO+zRAPaaHxxpCneF05pUrQBQilKB/qV3NjBoAvzkl76QT/u3y+/ZXPTSHc91e/HNHFvfOaKg8J27L5+y8aVLHolWAkAAAhN8BH/w5MYS+K7QW1qp3x/vfDBameTMzQKQgjU9bfM4ACs6FuxLdN/Rc9jKmDEAeLnswFk9RXJGXeFSf6lkZjJIe7qR5TOjiVIMYCH+Fwj5NPjGMyiogNLPHKtzWJ9DHb1dFRmybyqmAsXQkTHckwbuaY2FD5hpu+lMbP0snPEBiYF1WEyUQr9iw1eqQIPbmsrDNQwAVlzsfPmPy8Vl3uHO4oLz4NS1sX2FE8PQcw9F9HgjABSFJ5zVT+KfP5z6m6Vn/jwTiPieDc8OX9VQsSaaSY/VXI6sfMPbM3fiV0YGp85JPrFt4XlppayF1z8S/tzzfQJDfirrVNCFwIxlj58XziSKutyUNzarcFv5zKD917ZrqHDSl8HMdDaOw/x/QJ+jHBAf6srf8Df8RfF/ywRQ7a+lLeUAAAAASUVORK5CYII=">
-<link rel="apple-touch-icon" href="data:image/png;base64,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">
-<title>Spyke</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>NeuroLog</title>
 <style>
-:root {
-  --void:      #070B14;
-  --deep:      #0C1220;
-  --surface:   #111827;
-  --raised:    #1A2236;
-  --border:    #1E2D45;
-  --border-2:  #2A3F5F;
-  --text:      #F0F4FF;
-  --text-2:    #8B9BB4;
-  --text-3:    #4A5A72;
-  --teal:      #00D4B8;
-  --teal-dim:  #00291F;
-  --amber:     #F5A623;
-  --amber-dim: #2A1A00;
-  --violet:    #9B6FE8;
-  --violet-dim:#1A0F35;
-  --red:       #F05060;
-  --green:     #3DD68C;
-  --r:         6px;
-  --r-lg:      12px;
-  --font:      'Inter', system-ui, sans-serif;
-  --serif:     'Inter', system-ui, sans-serif;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;overflow:hidden}
-body{background:var(--void);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
-
-/* ── Header ── */
-.hdr{
-  background:var(--deep);border-bottom:1px solid var(--border);
-  padding:0 20px;height:52px;display:flex;align-items:center;
-  justify-content:space-between;flex-shrink:0;gap:16px;
-}
-.logo{display:flex;align-items:center;gap:9px;flex-shrink:0}
-.logo-icon{
-  width:36px;height:36px;
-  display:flex;align-items:center;justify-content:center;
-}
-.logo-name{font-family:var(--serif);font-size:19px;color:var(--text);letter-spacing:-0.3px}
-.logo-name em{font-style:italic;color:var(--teal)}
-
-.search-wrap{flex:1;max-width:420px}
-.search-box{
-  width:100%;padding:7px 14px 7px 36px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:99px;color:var(--text);font-family:var(--font);font-size:13px;
-  outline:none;transition:border-color 0.14s;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%234A5A72' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:12px center;
-}
-.search-box:focus{border-color:var(--teal)}
-.search-box::placeholder{color:var(--text-3)}
-
-.hdr-right{display:flex;align-items:center;gap:8px}
-
-.refresh-btn{
-  padding:6px 14px;border-radius:var(--r);
-  background:var(--teal);color:var(--void);border:none;
-  font-family:var(--font);font-size:12px;font-weight:600;
-  cursor:pointer;transition:opacity 0.15s;white-space:nowrap;
-}
-.refresh-btn:hover{opacity:0.85}
-.refresh-btn:disabled{opacity:0.4;cursor:not-allowed}
-
-/* ── Body ── */
-.body{display:flex;flex:1;overflow:hidden}
-
-/* ── Sidebar ── */
-.sidebar{
-  width:200px;flex-shrink:0;background:var(--deep);
-  border-right:1px solid var(--border);
-  overflow-y:auto;padding:16px 10px;
-  display:flex;flex-direction:column;gap:6px;
-}
-.sidebar-label{
-  font-size:9.5px;font-weight:600;letter-spacing:0.12em;
-  text-transform:uppercase;color:var(--text-3);
-  padding:0 8px;margin-top:8px;margin-bottom:2px;
-}
-.sidebar-label:first-child{margin-top:0}
-.nav-btn{
-  display:flex;align-items:center;gap:8px;
-  width:100%;padding:7px 10px;border-radius:var(--r);
-  background:none;border:none;color:var(--text-2);
-  font-family:var(--font);font-size:13px;font-weight:400;
-  cursor:pointer;text-align:left;transition:all 0.12s;
-}
-.nav-btn:hover{background:var(--raised);color:var(--text)}
-.nav-btn.active{background:var(--teal-dim);color:var(--teal);font-weight:500}
-.nav-btn.active .nav-icon{color:var(--teal)}
-.nav-icon{font-size:14px;width:18px;text-align:center;flex-shrink:0}
-.nav-count{
-  margin-left:auto;font-size:10px;
-  background:var(--raised);border:1px solid var(--border);
-  padding:1px 6px;border-radius:99px;color:var(--text-3);
-}
-.nav-btn.active .nav-count{background:var(--teal-dim);border-color:var(--teal);color:var(--teal)}
-
-/* ── Feed ── */
-.feed-wrap{flex:1;overflow-y:auto;padding:20px}
-.feed-header{
-  display:flex;align-items:baseline;justify-content:space-between;
-  margin-bottom:16px;
-}
-.feed-title{font-family:var(--font);font-size:20px;font-weight:600;color:var(--text)}
-.feed-meta{font-size:12px;color:var(--text-3)}
-.feed-sort{display:flex;gap:4px;margin-bottom:16px}
-.sort-btn{
-  padding:4px 12px;border-radius:99px;font-size:12px;font-weight:500;
-  font-family:var(--font);background:var(--surface);
-  border:1px solid var(--border);color:var(--text-2);
-  cursor:pointer;transition:all 0.12s;
-}
-.sort-btn:hover{border-color:var(--border-2);color:var(--text)}
-.sort-btn.active{background:var(--teal-dim);border-color:var(--teal);color:var(--teal)}
-
-.feed{display:flex;flex-direction:column;gap:10px}
-
-/* ── Paper card ── */
-.paper-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r-lg);padding:16px 18px;
-  cursor:pointer;transition:border-color 0.15s, background 0.15s;
-  position:relative;
-}
-.paper-card:hover{border-color:var(--border-2);background:var(--raised)}
-.paper-card.active{border-color:var(--teal);background:var(--raised)}
-.card-top{display:flex;align-items:flex-start;gap:12px}
-.card-rank{
-  font-family:'DM Sans',monospace;font-size:11px;font-weight:600;
-  color:var(--text-3);width:22px;flex-shrink:0;padding-top:2px;
-  text-align:right;
-}
-.card-body{flex:1;min-width:0}
-.card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px}
-.tag{
-  font-size:10px;font-weight:500;padding:2px 7px;
-  border-radius:4px;border:1px solid;white-space:nowrap;
-}
-.tag-field{background:var(--violet-dim);border-color:rgba(155,111,232,0.25);color:var(--violet)}
-.tag-type{background:var(--raised);border-color:var(--border-2);color:var(--text-3)}
-.tag-hot{background:rgba(245,166,35,0.1);border-color:rgba(245,166,35,0.3);color:var(--amber)}
-.tag-new{background:rgba(0,212,184,0.1);border-color:rgba(0,212,184,0.3);color:var(--teal)}
-.tag-preprint{background:rgba(240,80,96,0.1);border-color:rgba(240,80,96,0.3);color:var(--red)}
-.card-title{
-  font-family:var(--font);font-size:14px;font-weight:500;line-height:1.5;
-  color:var(--text);margin-bottom:5px;
-}
-.card-authors{font-size:12px;color:var(--text-3);margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.card-abstract{font-size:12.5px;color:var(--text-2);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-footer{
-  display:flex;align-items:center;gap:12px;
-  margin-top:10px;padding-top:10px;border-top:1px solid var(--border);
-}
-.card-stat{display:flex;align-items:center;gap:4px;font-size:11.5px;color:var(--text-3)}
-.card-stat svg{width:12px;height:12px;fill:currentColor;flex-shrink:0}
-.card-stat.hot{color:var(--amber)}
-.card-stat.new-stat{color:var(--teal)}
-.sparkline{margin-left:auto;flex-shrink:0}
-.card-journal{font-size:11px;color:var(--text-3);font-style:italic;margin-left:auto}
-.card-save{
-  width:26px;height:26px;border-radius:5px;
-  background:none;border:1px solid var(--border);
-  color:var(--text-3);cursor:pointer;font-size:13px;
-  display:flex;align-items:center;justify-content:center;
-  transition:all 0.12s;flex-shrink:0;
-}
-.card-save:hover{border-color:var(--amber);color:var(--amber)}
-.card-save.saved{background:var(--amber-dim);border-color:var(--amber);color:var(--amber)}
-
-/* ── Detail panel ── */
-.detail{
-  width:360px;flex-shrink:0;background:var(--deep);
-  border-left:1px solid var(--border);
-  overflow-y:auto;display:flex;flex-direction:column;
-}
-.detail-empty{
-  flex:1;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;padding:32px;gap:10px;color:var(--text-3);
-}
-.detail-empty-icon{font-size:36px;opacity:0.4}
-.detail-content{padding:20px;display:flex;flex-direction:column;gap:14px}
-.detail-tags{display:flex;gap:5px;flex-wrap:wrap}
-.detail-title{font-family:var(--font);font-size:16px;font-weight:600;line-height:1.5;color:var(--text)}
-.detail-authors{font-size:12.5px;color:var(--text-2)}
-.detail-meta{
-  display:grid;grid-template-columns:1fr 1fr;gap:8px;
-}
-.detail-meta-item{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r);padding:8px 10px;
-}
-.detail-meta-label{font-size:9.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px}
-.detail-meta-val{font-size:15px;font-weight:600;color:var(--text)}
-.detail-meta-val.teal{color:var(--teal)}
-.detail-meta-val.amber{color:var(--amber)}
-.detail-meta-val.violet{color:var(--violet)}
-.section-label{font-size:10px;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px}
-.detail-abstract{font-size:13px;line-height:1.75;color:var(--text-2)}
-.detail-summary{
-  background:linear-gradient(135deg,var(--teal-dim),var(--violet-dim));
-  border:1px solid rgba(0,212,184,0.15);
-  border-radius:var(--r);padding:12px 14px;
-  font-size:13px;line-height:1.7;color:var(--text);
-}
-.summary-loading{
-  display:flex;align-items:center;gap:8px;
-  font-size:12px;color:var(--text-3);
-}
-.dots span{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--teal);margin:0 2px;animation:bounce 1.2s ease infinite}
-.dots span:nth-child(2){animation-delay:0.2s}
-.dots span:nth-child(3){animation-delay:0.4s}
-@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
-.detail-actions{display:flex;gap:8px}
-.action-btn{
-  flex:1;padding:8px;border-radius:var(--r);
-  font-family:var(--font);font-size:12.5px;font-weight:500;
-  cursor:pointer;transition:opacity 0.15s;border:none;text-align:center;
-  text-decoration:none;display:flex;align-items:center;justify-content:center;gap:5px;
-}
-.action-btn:hover{opacity:0.85}
-.btn-pubmed{background:var(--teal);color:var(--void)}
-.btn-save{background:var(--raised);border:1px solid var(--border);color:var(--text-2)}
-.btn-save.saved{background:var(--amber-dim);border-color:var(--amber);color:var(--amber)}
-.related-list{display:flex;flex-direction:column;gap:6px}
-.related-item{
-  padding:9px 11px;background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r);cursor:pointer;transition:border-color 0.12s;
-}
-.related-item:hover{border-color:var(--border-2)}
-.related-title{font-size:12px;font-weight:500;color:var(--text);line-height:1.4;margin-bottom:2px}
-.related-meta{font-size:11px;color:var(--text-3)}
-
-/* ── Loading / states ── */
-.loading-feed{
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:60px 20px;gap:12px;color:var(--text-3);
-}
-.loading-spinner{
-  width:28px;height:28px;border:2px solid var(--border);
-  border-top-color:var(--teal);border-radius:50%;
-  animation:spin 0.7s linear infinite;
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-.skeleton{
-  background:linear-gradient(90deg,var(--surface) 25%,var(--raised) 50%,var(--surface) 75%);
-  background-size:200% 100%;
-  animation:shimmer 1.5s infinite;
-  border-radius:4px;
-}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-
-/* ── Scrollbar ── */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
-::-webkit-scrollbar-thumb:hover{background:var(--border-2)}
-
-/* ── Toast ── */
-.toast{
-  position:fixed;bottom:20px;right:20px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r);padding:10px 16px;
-  font-size:13px;color:var(--text);
-  box-shadow:0 4px 20px rgba(0,0,0,0.4);
-  transform:translateY(100px);opacity:0;
-  transition:all 0.25s;z-index:100;
-}
-.toast.show{transform:translateY(0);opacity:1}
-
-/* ── Empty state ── */
-.empty-state{
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:60px 20px;gap:10px;color:var(--text-3);text-align:center;
-}
-</style>
-
-<script>
-const LOGO_DARK = "data:image/png;base64,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";
-const LOGO_LIGHT = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAYCAYAAACSuF9OAAABcUlEQVR4nM1W0W7DIAw8oJm2///VSdOaEPaALZiDDYVM2klVQgHnbJ/BLqWUcA++ALwDcCtG/D1ckMRvGo9FIgeAk+wEek/IUZqy3YvQIcYRJQIcjUAENhozkW9az3Y+RwhZXiQyxB+NyBHwKBHYxB5XzYVqfwTwMULIDYj6BLDT860iB3qvceDqJDsxhBFCGlgrklBo/B8BPDEQpZUqa5W3Zs8jR7cLS0MHcqrCqDECR9xVY0d2kpi/OGURYn045JBLvfQIPfFb9EwsoRwPF0ctDZ309NC10SITac+UHFqb2OheEXiglLAFXm+ROXA931RCEflOqg88Rl3uPfSIq+lvpaxVzowd2QlLTzK90p5lvxnaerFM04YiSA2uMZ/EvAor1yfapclXQo+QWd4zhKw9HqUKNUJTfZFFyEPvb0Jnr0Z2iRB/2NJDC5yiqTuy10S18j+Siuk29q4WVoKPhZdTt9rCanDiOYy/itA0/h2hH6jpbiOf5DUzAAAAAElFTkSuQmCC";
-function updateLogo() {
-  const logo = document.getElementById('spyke-logo');
-  if (!logo) return;
-  const isDark = document.body.classList.contains('light-mode') === false;
-  logo.src = LOGO_DARK;
-}
-</script>
-
-<style>
-body.light-mode {
-  --void:      #E8EDF5;
-  --deep:      #EFF2F8;
-  --surface:   #E2E8F2;
-  --raised:    #D6DDED;
-  --border:    #C2CBDE;
-  --border-2:  #A8B4CC;
-  --text:      #0F1623;
-  --text-2:    #3A4560;
-  --text-3:    #7A869E;
-  --teal-dim:  #B8EDE6;
-  --amber-dim: #F5E6C0;
-  --violet-dim:#DDD6F0;
-  --teal:      #008F7A;
-  --amber:     #7A4E00;
-  --violet:    #5B3FA8;
-}
-body.light-mode .hdr { background: #E2EAF5; border-bottom: 1px solid #B8C8E0; }
-body.light-mode .sidebar { background: #EBF0F8; border-right: 1px solid #C2CBDE; }
-body.light-mode .detail { background: #EBF0F8; border-left: 1px solid #C2CBDE; }
-body.light-mode .paper-card { background: #EFF3FA; }
-body.light-mode .paper-card:hover { background: #E4EAF5; }
-body.light-mode .detail-summary { background: linear-gradient(135deg, #C8EDE6, #D8D0EE); border-color: rgba(0,143,122,0.2); }
-body.light-mode .interp { border-left-color: var(--violet); }
-body.light-mode .nav-btn.active { background: #C0D8F0; color: #1A3A6A; }
-body.light-mode .sort-btn.active { background: #B8EDE6; border-color: #008F7A; color: #005A4E; }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  :root {
+    --bg: #F7F8FA; --bg-card: #FFFFFF;
+    --text: #1A2340; --text-60: rgba(26,35,64,0.5); --text-20: rgba(26,35,64,0.1);
+    --red: #E53935; --red-bg: rgba(229,57,53,0.08);
+    --teal: #00897B; --teal-bg: rgba(0,137,123,0.08);
+    --amber: #F59E0B; --amber-bg: rgba(245,158,11,0.08);
+    --blue: #3B6FD4; --blue-bg: rgba(59,111,212,0.08);
+    --border: rgba(26,35,64,0.1); --shadow: 0 2px 12px rgba(26,35,64,0.07);
+  }
+  body { font-family:'Inter',sans-serif; background:#E0E2EA; color:var(--text); min-height:100vh; display:flex; justify-content:center; }
+  .phone { width:100%; max-width:390px; min-height:100vh; background:var(--bg); box-shadow:0 0 40px rgba(0,0,0,0.18); position:relative; }
+  .screen { display:none; flex-direction:column; min-height:100vh; }
+  .screen.active { display:flex; }
+  .status-bar { padding:12px 20px 8px; display:flex; justify-content:space-between; align-items:center; font-size:12px; font-weight:600; color:var(--text-60); background:var(--bg); }
+  .offline-badge { background:var(--amber-bg); color:var(--amber); border:1px solid rgba(245,158,11,0.3); border-radius:20px; padding:2px 8px; font-size:10px; font-weight:700; }
+  .header { padding:8px 20px 14px; display:flex; align-items:center; gap:12px; background:var(--bg); border-bottom:1px solid var(--border); }
+  .back-btn { width:36px; height:36px; background:var(--text-20); border-radius:50%; border:none; color:var(--text); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .header-title { font-size:17px; font-weight:700; color:var(--text); }
+  .header-sub { font-size:12px; color:var(--text-60); margin-top:1px; }
+  .logo { padding:20px 20px 12px; display:flex; align-items:center; gap:10px; }
+  .logo-mark { width:38px; height:38px; background:var(--text); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; }
+  .logo-text { font-size:24px; font-weight:800; letter-spacing:-0.5px; color:var(--text); }
+  .logo-text span { color:var(--blue); }
+  .scroll { flex:1; overflow-y:auto; padding:0 16px 100px; }
+  .scroll::-webkit-scrollbar { display:none; }
+  .section-label { font-size:11px; font-weight:700; letter-spacing:1.5px; color:var(--text-60); text-transform:uppercase; margin:20px 0 10px; }
+  .patient-card { background:var(--bg-card); border-radius:16px; padding:16px; margin-bottom:10px; cursor:pointer; border:1px solid var(--border); box-shadow:var(--shadow); position:relative; overflow:hidden; }
+  .phase-stripe { position:absolute; left:0; top:0; bottom:0; width:4px; border-radius:16px 0 0 16px; }
+  .phase-stripe.recovery { background:var(--teal); }
+  .phase-stripe.acute { background:var(--red); }
+  .patient-card-inner { padding-left:12px; }
+  .patient-name { font-size:16px; font-weight:700; margin-bottom:3px; }
+  .patient-meta { font-size:12px; color:var(--text-60); display:flex; gap:12px; }
+  .patient-status { margin-top:10px; display:flex; gap:6px; flex-wrap:wrap; }
+  .tag { font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; }
+  .tag.teal { background:var(--teal-bg); color:var(--teal); }
+  .tag.amber { background:var(--amber-bg); color:var(--amber); }
+  .add-patient-btn { width:100%; background:transparent; border:2px dashed var(--border); border-radius:16px; padding:18px; color:var(--text-60); font-size:14px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; margin-top:4px; }
+  .action-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:20px; }
+  .action-card { background:var(--bg-card); border-radius:16px; padding:16px 14px; border:1px solid var(--border); cursor:pointer; box-shadow:var(--shadow); transition:all 0.15s; }
+  .action-card:active { transform:scale(0.97); }
+  .action-card.primary { background:var(--red); border-color:var(--red); grid-column:1/-1; box-shadow:0 4px 16px rgba(229,57,53,0.3); }
+  .action-card.primary .action-title,.action-card.primary .action-sub { color:white; }
+  .action-card.primary .action-sub { opacity:0.8; }
+  .action-card.teal-card { border-color:rgba(0,137,123,0.3); background:var(--teal-bg); }
+  .action-icon { font-size:24px; margin-bottom:8px; }
+  .action-title { font-size:14px; font-weight:700; }
+  .action-sub { font-size:11px; color:var(--text-60); margin-top:2px; }
+  .profile-hero { padding:16px 16px 4px; }
+  .profile-day-badge { display:inline-flex; align-items:center; gap:6px; background:var(--teal-bg); border:1px solid rgba(0,137,123,0.25); color:var(--teal); border-radius:20px; padding:5px 14px; font-size:13px; font-weight:700; }
+  .timeline { position:relative; padding-left:28px; }
+  .timeline::before { content:''; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:var(--border); }
+  .timeline-entry { position:relative; margin-bottom:14px; }
+  .timeline-dot { position:absolute; left:-24px; top:5px; width:12px; height:12px; border-radius:50%; border:2px solid var(--bg); }
+  .timeline-dot.red { background:var(--red); }
+  .timeline-dot.teal { background:var(--teal); }
+  .timeline-dot.blue { background:var(--blue); }
+  .timeline-dot.grey { background:var(--text-60); }
+  .timeline-time { font-size:10px; font-weight:700; color:var(--text-60); letter-spacing:0.5px; margin-bottom:3px; text-transform:uppercase; }
+  .timeline-content { background:var(--bg-card); border-radius:12px; padding:12px 14px; border:1px solid var(--border); font-size:13px; line-height:1.5; box-shadow:var(--shadow); }
+  .timeline-content.alert { border-color:rgba(229,57,53,0.3); background:var(--red-bg); }
+  .timeline-content.provider { border-color:rgba(59,111,212,0.3); background:var(--blue-bg); }
+  .timeline-label { font-size:10px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; margin-bottom:4px; }
+  .timeline-label.red { color:var(--red); }
+  .timeline-label.blue { color:var(--blue); }
+  .timeline-label.grey { color:var(--text-60); }
+  .med-row { background:var(--bg-card); border-radius:12px; padding:14px; display:flex; align-items:center; gap:12px; margin-bottom:8px; border:1px solid var(--border); box-shadow:var(--shadow); }
+  .med-icon { width:40px; height:40px; background:var(--amber-bg); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+  .med-name { font-size:14px; font-weight:600; }
+  .med-time { font-size:12px; color:var(--text-60); margin-top:2px; }
+  .med-check { margin-left:auto; width:28px; height:28px; border-radius:50%; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:14px; flex-shrink:0; color:white; }
+  .med-check.done { background:var(--teal); border-color:var(--teal); }
+  .question-screen { padding:20px; flex:1; display:flex; flex-direction:column; }
+  .question-progress { display:flex; gap:4px; margin-bottom:24px; }
+  .progress-dot { height:4px; border-radius:2px; flex:1; background:var(--text-20); }
+  .progress-dot.done { background:var(--red); }
+  .progress-dot.active { background:var(--amber); }
+  .question-icon { font-size:44px; margin-bottom:14px; }
+  .question-text { font-size:22px; font-weight:800; line-height:1.3; margin-bottom:6px; }
+  .question-sub { font-size:14px; color:var(--text-60); line-height:1.5; margin-bottom:24px; }
+  .answer-grid { display:flex; flex-direction:column; gap:10px; flex:1; }
+  .answer-btn { width:100%; background:var(--bg-card); border:2px solid var(--border); border-radius:16px; padding:18px 20px; color:var(--text); font-size:16px; font-weight:700; cursor:pointer; text-align:left; display:flex; align-items:center; gap:14px; box-shadow:var(--shadow); transition:all 0.15s; }
+  .answer-btn:active { transform:scale(0.98); }
+  .answer-btn.yes { border-color:rgba(0,137,123,0.4); }
+  .answer-btn.no { border-color:rgba(229,57,53,0.4); }
+  .answer-icon { font-size:28px; flex-shrink:0; }
+  .answer-label { font-size:13px; color:var(--text-60); font-weight:400; margin-top:2px; }
+  .alert-screen { flex:1; display:flex; flex-direction:column; padding:20px; }
+  .alert-banner { background:var(--red); border-radius:16px; padding:16px; margin-bottom:16px; }
+  .alert-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.2); border-radius:20px; padding:4px 12px; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; margin-bottom:10px; color:white; }
+  .alert-title { font-size:24px; font-weight:800; color:white; margin-bottom:6px; }
+  .alert-desc { font-size:13px; color:rgba(255,255,255,0.82); line-height:1.6; }
+  .instruction-list { display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
+  .instruction-row { background:var(--bg-card); border-radius:14px; padding:14px 16px; display:flex; gap:12px; align-items:flex-start; border:1px solid var(--border); box-shadow:var(--shadow); }
+  .instruction-num { width:26px; height:26px; background:var(--red); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0; color:white; }
+  .instruction-text { font-size:14px; line-height:1.5; font-weight:500; }
+  .watchlist { background:var(--bg-card); border:1px solid rgba(245,158,11,0.3); border-radius:16px; padding:16px; margin-bottom:14px; box-shadow:var(--shadow); }
+  .watchlist-title { font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--amber); margin-bottom:12px; }
+  .watchlist-item { display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid var(--border); cursor:pointer; }
+  .watchlist-item:last-child { border-bottom:none; padding-bottom:0; }
+  .watchlist-item-icon { font-size:20px; flex-shrink:0; }
+  .watchlist-item-text { font-size:14px; font-weight:500; flex:1; }
+  .watchlist-item-tap { font-size:11px; color:var(--amber); font-weight:700; }
+  .guide-box { background:var(--bg-card); border-radius:16px; padding:16px; border:1px solid var(--border); font-size:13px; color:var(--text-60); line-height:1.7; box-shadow:var(--shadow); }
+  .qr-container { flex:1; display:flex; flex-direction:column; align-items:center; padding:20px; }
+  .qr-box { width:200px; height:200px; background:white; border-radius:20px; margin:20px auto; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); box-shadow:var(--shadow); }
+  .patient-id { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:12px 24px; font-size:28px; font-weight:800; letter-spacing:8px; margin:16px 0; box-shadow:var(--shadow); }
+  .big-btn { width:100%; padding:17px; border-radius:14px; border:none; font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; margin-top:10px; }
+  .big-btn.red { background:var(--red); color:white; box-shadow:0 4px 16px rgba(229,57,53,0.3); }
+  .big-btn.teal { background:var(--teal); color:white; box-shadow:0 4px 16px rgba(0,137,123,0.25); }
+  .big-btn.ghost { background:var(--text-20); color:var(--text); }
+  .rehab-category { background:var(--bg-card); border-radius:16px; padding:16px; margin-bottom:10px; border:1px solid var(--border); cursor:pointer; display:flex; align-items:center; gap:14px; box-shadow:var(--shadow); }
+  .rehab-icon { width:48px; height:48px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; }
+  .rehab-title { font-size:15px; font-weight:700; }
+  .rehab-count { font-size:12px; color:var(--text-60); margin-top:2px; }
+  .rehab-arrow { margin-left:auto; color:var(--text-60); font-size:20px; }
+  .video-list { display:flex; flex-direction:column; gap:12px; }
+  .video-card { background:var(--bg-card); border-radius:16px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow); }
+  .video-thumb { width:100%; aspect-ratio:16/9; background:#000; }
+  .video-thumb iframe { width:100%; height:100%; border:none; }
+  .video-info { padding:12px 14px; }
+  .video-title { font-size:14px; font-weight:700; margin-bottom:3px; }
+  .video-meta { font-size:12px; color:var(--text-60); }
+  .video-tag { display:inline-block; background:var(--teal-bg); color:var(--teal); font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; margin-top:6px; }
+  .caregiver-note { background:linear-gradient(135deg,var(--teal-bg),var(--blue-bg)); border:1px solid rgba(0,137,123,0.2); border-radius:16px; padding:16px; font-size:13px; line-height:1.7; }
+  .checkin-q { background:var(--bg-card); border-radius:14px; padding:16px; border:1px solid var(--border); margin-bottom:10px; box-shadow:var(--shadow); }
+  .checkin-q-label { font-size:14px; font-weight:600; margin-bottom:12px; }
+  .checkin-options { display:flex; gap:8px; }
+  .checkin-opt { flex:1; padding:10px 6px; background:var(--bg); border:1.5px solid var(--border); border-radius:10px; color:var(--text); font-size:12px; font-weight:700; cursor:pointer; text-align:center; transition:all 0.15s; }
+  .checkin-opt.sel-red { background:var(--red-bg); border-color:var(--red); color:var(--red); }
+  .checkin-opt.sel-amber { background:var(--amber-bg); border-color:var(--amber); color:var(--amber); }
+  .checkin-opt.sel-teal { background:var(--teal-bg); border-color:var(--teal); color:var(--teal); }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.6}} .pulse{animation:pulse 2s infinite;}
+  @keyframes slideUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}} .slide-up{animation:slideUp 0.25s ease;}
 </style>
 </head>
 <body>
+<div class="phone">
 
-<!-- ── Header ── -->
-<header class="hdr">
+<!-- HOME -->
+<div class="screen active" id="s-home">
+  <div class="status-bar"><span>9:41</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
   <div class="logo">
-    <div style="width:36px;height:36px;flex-shrink:0"><img id="spyke-logo" src="data:image/png;base64,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" style="width:36px;height:36px;object-fit:contain" alt="Spyke logo"></div>
-    <div class="logo-name" style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;letter-spacing:-0.5px;color:var(--text)">Spy<em style="font-style:normal;color:var(--teal)">ke</em></div>
+    <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+      <rect width="44" height="44" rx="12" fill="#1A2340"/>
+      <circle cx="22" cy="22" r="4" fill="white"/>
+      <circle cx="11" cy="14" r="2.5" fill="rgba(255,255,255,0.7)"/>
+      <circle cx="33" cy="14" r="2.5" fill="rgba(255,255,255,0.7)"/>
+      <circle cx="13" cy="32" r="2.5" fill="rgba(255,255,255,0.7)"/>
+      <circle cx="31" cy="31" r="2.5" fill="rgba(255,255,255,0.7)"/>
+      <circle cx="22" cy="9" r="2" fill="rgba(255,255,255,0.5)"/>
+      <line x1="22" y1="22" x2="11" y2="14" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+      <line x1="22" y1="22" x2="33" y2="14" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+      <line x1="22" y1="22" x2="13" y2="32" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+      <line x1="22" y1="22" x2="31" y2="31" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+      <line x1="22" y1="22" x2="22" y2="9" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+      <line x1="11" y1="14" x2="22" y2="9" stroke="rgba(255,255,255,0.25)" stroke-width="0.8"/>
+      <line x1="33" y1="14" x2="22" y2="9" stroke="rgba(255,255,255,0.25)" stroke-width="0.8"/>
+      <polyline points="6,33 11,33 13,28 16,37 18,24 20,33 22,29 24,33 26,26 28,33 38,33" fill="none" stroke="#00C9B1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="logo-text">Neuro<span>Log</span></div>
   </div>
-
-  <div class="search-wrap">
-    <input class="search-box" id="search-input" type="text"
-           placeholder="Search papers, topics, authors…"
-           onkeydown="if(event.key==='Enter') doSearch()">
-  </div>
-
-  <div class="hdr-right">
-    <button id="theme-btn" onclick="toggleTheme()" style="padding:5px 12px;border-radius:6px;background:transparent;color:var(--text-2);border:1px solid var(--border);font-family:var(--font);font-size:12px;font-weight:500;cursor:pointer;transition:all 0.15s">☀ Light</button>
-    <button class="refresh-btn" id="refresh-btn" onclick="loadFeed()">
-      Refresh feed
-    </button>
-  </div>
-</header>
-
-<div class="body">
-
-  <!-- ── Sidebar ── -->
-  <nav class="sidebar">
-    <div class="sidebar-label">Discover</div>
-    <button class="nav-btn active" onclick="setView('trending', this)" data-view="trending">
-      <span class="nav-icon">🔥</span> Trending
-      <span class="nav-count" id="count-trending">—</span>
-    </button>
-    <button class="nav-btn" onclick="setView('new', this)" data-view="new">
-      <span class="nav-icon">⚡</span> New this week
-      <span class="nav-count" id="count-new">—</span>
-    </button>
-    <button class="nav-btn" onclick="setView('preprints', this)" data-view="preprints">
-      <span class="nav-icon">📄</span> Preprints
-      <span class="nav-count" id="count-preprints">—</span>
-    </button>
-    <button class="nav-btn" onclick="setView('saved', this)" data-view="saved">
-      <span class="nav-icon">🔖</span> Saved
-      <span class="nav-count" id="count-saved">0</span>
-    </button>
-
-    <div class="sidebar-label">Fields</div>
-    <button class="nav-btn" onclick="setView('field:neuroscience', this)">
-      <span class="nav-icon">🧠</span> Neuroscience
-    </button>
-    <button class="nav-btn" onclick="setView('field:cognitive', this)">
-      <span class="nav-icon">💭</span> Cognitive science
-    </button>
-    <button class="nav-btn" onclick="setView('field:psychiatry', this)">
-      <span class="nav-icon">🧩</span> Psychiatry
-    </button>
-    <button class="nav-btn" onclick="setView('field:neuroimaging', this)">
-      <span class="nav-icon">🔬</span> Neuroimaging
-    </button>
-    <button class="nav-btn" onclick="setView('field:computational', this)">
-      <span class="nav-icon">⚙️</span> Computational
-    </button>
-    <button class="nav-btn" onclick="setView('field:clinical', this)">
-      <span class="nav-icon">🏥</span> Clinical neuro
-    </button>
-    <button class="nav-btn" onclick="setView('field:molecular', this)">
-      <span class="nav-icon">🔭</span> Molecular neuro
-    </button>
-    <button class="nav-btn" onclick="setView('field:bci', this)">
-      <span class="nav-icon">📡</span> BCI
-    </button>
-  </nav>
-
-  <!-- ── Feed ── -->
-  <div class="feed-wrap" id="feed-wrap">
-    <div class="feed-header">
-      <div class="feed-title" id="feed-title">Trending in Neuroscience</div>
-      <div class="feed-meta" id="feed-meta"></div>
-    </div>
-    <div class="feed-sort">
-      <button class="sort-btn active" onclick="setSort('relevance', this)">Most relevant</button>
-      <button class="sort-btn" onclick="setSort('citations', this)">Most cited</button>
-      <button class="sort-btn" onclick="setSort('date', this)">Newest</button>
-      <button class="sort-btn" onclick="setSort('influential', this)">Most influential</button>
-    </div>
-    <div class="feed" id="feed">
-      <div class="loading-feed">
-        <div class="loading-spinner"></div>
-        <div>Loading papers…</div>
+  <div class="scroll">
+    <div class="section-label">Your Patients</div>
+    <div class="patient-card" onclick="go('s-profile')">
+      <div class="phase-stripe recovery"></div>
+      <div class="patient-card-inner">
+        <div class="patient-name">HM — 31 years old</div>
+        <div class="patient-meta"><span>♂ Male</span><span>Day 34 of recovery</span></div>
+        <div class="patient-status"><span class="tag teal">Recovery Phase</span><span class="tag amber">⚠ Check-in due</span></div>
       </div>
     </div>
-  </div>
-
-  <!-- ── Detail panel ── -->
-  <aside class="detail" id="detail">
-    <div class="detail-empty">
-      <div class="detail-empty-icon">📖</div>
-      <div>Select a paper to read more</div>
+    <button class="add-patient-btn"><span style="font-size:20px">＋</span> Add New Patient</button>
+    <div class="section-label" style="margin-top:24px">How to use</div>
+    <div class="guide-box">
+      🚨 <b style="color:var(--text)">New injury?</b> Open a patient and tap "New Injury / Symptom"<br>
+      📋 <b style="color:var(--text)">At a clinic?</b> Show the QR code to the doctor<br>
+      🏠 <b style="color:var(--text)">At home?</b> Log daily check-ins and do rehab exercises
     </div>
-  </aside>
+  </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<!-- PROFILE -->
+<div class="screen" id="s-profile">
+  <div class="status-bar"><span>9:43</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header">
+    <button class="back-btn" onclick="go('s-home')">←</button>
+    <div style="flex:1"><div class="header-title">HM's Log</div><div class="header-sub">31 y/o male · Gilgit-Baltistan</div></div>
+    <button class="back-btn" style="font-size:13px;font-weight:700" onclick="go('s-qr')">QR</button>
+  </div>
+  <div class="scroll">
+    <div class="profile-hero"><div class="profile-day-badge">🟢 Day 34 of Recovery</div></div>
+    <div style="height:12px"></div>
+    <div class="action-grid">
+      <div class="action-card primary" onclick="go('s-q1')">
+        <div class="action-icon">🚨</div>
+        <div class="action-title">New Injury / Symptom</div>
+        <div class="action-sub">Start emergency guidance now</div>
+      </div>
+      <div class="action-card teal-card" onclick="go('s-checkin')">
+        <div class="action-icon">📋</div>
+        <div class="action-title">Daily Check-in</div>
+        <div class="action-sub">Not done today</div>
+      </div>
+      <div class="action-card" onclick="go('s-rehab')">
+        <div class="action-icon">🏃</div>
+        <div class="action-title">Rehab Exercises</div>
+        <div class="action-sub">4 videos loaded offline</div>
+      </div>
+    </div>
+    <div class="section-label">Medications Today</div>
+    <div class="med-row"><div class="med-icon">💊</div><div><div class="med-name">Levetiracetam 500mg</div><div class="med-time">Morning · 8:00 AM</div></div><div class="med-check done">✓</div></div>
+    <div class="med-row"><div class="med-icon">💊</div><div><div class="med-name">Levetiracetam 500mg</div><div class="med-time">Evening · 8:00 PM · Due soon</div></div><div class="med-check" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"></div></div>
+    <div class="med-row"><div class="med-icon">💊</div><div><div class="med-name">Paracetamol 500mg</div><div class="med-time">As needed for headache</div></div><div class="med-check" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"></div></div>
+    <div class="section-label">Patient Timeline</div>
+    <div class="timeline">
+      <div class="timeline-entry"><div class="timeline-dot red"></div><div class="timeline-time">Day 1 · 14:00</div><div class="timeline-content alert"><div class="timeline-label red">🚨 RED FLAG TRIGGERED</div>Vehicle accident. Left temporal impact. LOC ~4 min. Vomited ×1. Unequal pupils detected at T+2.5h.</div></div>
+      <div class="timeline-entry"><div class="timeline-dot blue"></div><div class="timeline-time">Day 1 · 19:45 · District Hospital</div><div class="timeline-content provider"><div class="timeline-label blue">👨‍⚕️ PROVIDER NOTE</div>GMO: Uncal herniation. Emergency burr hole performed. Mannitol IV. Patient stabilised.</div></div>
+      <div class="timeline-entry"><div class="timeline-dot blue"></div><div class="timeline-time">Day 5 · Tertiary Hospital Discharge</div><div class="timeline-content provider"><div class="timeline-label blue">👨‍⚕️ DISCHARGE PLAN</div>Residual epidural collection. No reoperation needed. Levetiracetam prescribed. Follow up: 1 month. Watch for: seizures, worsening headache, confusion.</div></div>
+      <div class="timeline-entry"><div class="timeline-dot teal"></div><div class="timeline-time">Day 12 · Home Check-in</div><div class="timeline-content"><div class="timeline-label grey">CHECK-IN</div>Confused, irritable. Headache: moderate. Active ~2 hrs. Medication ✓</div></div>
+      <div class="timeline-entry"><div class="timeline-dot grey"></div><div class="timeline-time">Day 33 · Yesterday</div><div class="timeline-content"><div class="timeline-label grey">CHECK-IN</div>Less confused. Headache: mild. Active ~3 hrs. Mood calmer. Medication ✓</div></div>
+    </div>
+    <div style="height:10px"></div>
+  </div>
+</div>
 
+<!-- Q1 CONSCIOUSNESS -->
+<div class="screen" id="s-q1">
+  <div class="status-bar"><span>9:44</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header"><button class="back-btn" onclick="go('s-profile')">←</button><div><div class="header-title">New Injury</div><div class="header-sub">Logging started · 9:44 AM</div></div></div>
+  <div class="question-screen">
+    <div class="question-progress"><div class="progress-dot active"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div></div>
+    <div class="question-icon">🤕</div>
+    <div class="question-text">Is he conscious right now?</div>
+    <div class="question-sub">Can he open his eyes, speak, or respond when you call his name?</div>
+    <div class="answer-grid">
+      <button class="answer-btn yes" onclick="go('s-q2')"><span class="answer-icon">✅</span><div><div>Yes, he is awake</div><div class="answer-label">Responds to name or touch</div></div></button>
+      <button class="answer-btn no" onclick="go('s-alert')"><span class="answer-icon">❌</span><div><div>No, not responding</div><div class="answer-label">Does not respond at all</div></div></button>
+      <button class="answer-btn" style="border-color:rgba(245,158,11,0.4)" onclick="go('s-q2')"><span class="answer-icon">😵</span><div><div>He is confused</div><div class="answer-label">Awake but not making sense</div></div></button>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 PUPILS -->
+<div class="screen" id="s-q2">
+  <div class="status-bar"><span>9:45</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header"><button class="back-btn" onclick="go('s-q1')">←</button><div><div class="header-title">New Injury</div><div class="header-sub">Logged: Conscious · 9:44 AM</div></div></div>
+  <div class="question-screen">
+    <div class="question-progress"><div class="progress-dot done"></div><div class="progress-dot active"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div></div>
+    <div class="question-icon">👁️</div>
+    <div class="question-text">Look at both eyes. Are the pupils the same size?</div>
+    <div class="question-sub">The black circle in the centre of each eye. Use your phone torch if needed.</div>
+    <div style="display:flex;gap:20px;justify-content:center;margin-bottom:24px;">
+      <div style="text-align:center">
+        <div style="width:64px;height:64px;background:var(--teal-bg);border:2px solid var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 6px">
+          <div style="width:20px;height:20px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid #ddd"><div style="width:10px;height:10px;background:#111;border-radius:50%"></div></div>
+        </div>
+        <div style="font-size:11px;color:var(--teal);font-weight:700">Equal ✓</div>
+      </div>
+      <div style="text-align:center">
+        <div style="width:64px;height:64px;background:var(--red-bg);border:2px solid var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;gap:4px">
+          <div style="width:14px;height:14px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid #ddd"><div style="width:6px;height:6px;background:#111;border-radius:50%"></div></div>
+          <div style="width:14px;height:14px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid #ddd"><div style="width:12px;height:12px;background:#111;border-radius:50%"></div></div>
+        </div>
+        <div style="font-size:11px;color:var(--red);font-weight:700">Unequal ⚠</div>
+      </div>
+    </div>
+    <div class="answer-grid">
+      <button class="answer-btn yes" onclick="go('s-watchlist')"><span class="answer-icon">✅</span><div><div>Same size</div><div class="answer-label">Both pupils look equal</div></div></button>
+      <button class="answer-btn no" onclick="go('s-alert')"><span class="answer-icon">🚨</span><div><div>Different sizes</div><div class="answer-label">One is bigger than the other</div></div></button>
+    </div>
+  </div>
+</div>
+
+<!-- RED FLAG ALERT -->
+<div class="screen" id="s-alert">
+  <div class="status-bar"><span>9:46</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="alert-screen slide-up">
+    <div style="height:8px"></div>
+    <div class="alert-banner">
+      <div class="alert-badge pulse">🚨 RED FLAG</div>
+      <div class="alert-title">Go to hospital NOW</div>
+      <div class="alert-desc">Unequal pupils means pressure is building inside the brain. This is a medical emergency. Every minute matters.</div>
+    </div>
+    <div class="instruction-list">
+      <div class="instruction-row"><div class="instruction-num">1</div><div class="instruction-text">Do <b>NOT</b> give food, water, or medicine right now</div></div>
+      <div class="instruction-row"><div class="instruction-num">2</div><div class="instruction-text">Keep his head and neck still. Do not let him walk alone</div></div>
+      <div class="instruction-row"><div class="instruction-num">3</div><div class="instruction-text">If vomiting: tilt him gently onto his side. Place a <b>rolled cloth</b> behind his back to hold the position</div></div>
+      <div class="instruction-row"><div class="instruction-num">4</div><div class="instruction-text">Find transport to nearest clinic. Tell them: <b>"Head injury, unequal pupils"</b></div></div>
+    </div>
+    <div style="background:var(--red-bg);border:1px solid rgba(229,57,53,0.3);border-radius:14px;padding:14px;font-size:13px;line-height:1.7;margin-bottom:14px">
+      📋 <b>Tell the doctor:</b><br>
+      Injury time: <b>9:44 AM</b> · Pupils: <b>Unequal at 9:46 AM</b><br>
+      Consciousness: <b>Confused</b> · Vomited: <b>×1</b>
+    </div>
+    <button class="big-btn ghost" onclick="go('s-watchlist')">← Back to monitoring</button>
+  </div>
+</div>
+
+<!-- WATCHLIST -->
+<div class="screen" id="s-watchlist">
+  <div class="status-bar"><span>9:47</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header"><button class="back-btn" onclick="go('s-profile')">←</button><div><div class="header-title">Watch for Changes</div><div class="header-sub">Tap immediately if anything changes</div></div></div>
+  <div class="scroll">
+    <div style="font-size:13px;color:var(--text-60);line-height:1.6;margin-bottom:14px">He is stable right now. Stay with him. Tap any sign below if it changes.</div>
+    <div class="watchlist">
+      <div class="watchlist-title">👁️ Watch for these signs</div>
+      <div class="watchlist-item" onclick="go('s-alert')"><div class="watchlist-item-icon">👁️</div><div class="watchlist-item-text">Pupils become unequal</div><div class="watchlist-item-tap">TAP →</div></div>
+      <div class="watchlist-item" onclick="go('s-alert')"><div class="watchlist-item-icon">🗣️</div><div class="watchlist-item-text">Stops recognizing you</div><div class="watchlist-item-tap">TAP →</div></div>
+      <div class="watchlist-item" onclick="go('s-alert')"><div class="watchlist-item-icon">🤢</div><div class="watchlist-item-text">Vomits again</div><div class="watchlist-item-tap">TAP →</div></div>
+      <div class="watchlist-item" onclick="go('s-alert')"><div class="watchlist-item-icon">😴</div><div class="watchlist-item-text">Very hard to wake up</div><div class="watchlist-item-tap">TAP →</div></div>
+      <div class="watchlist-item" onclick="go('s-alert')"><div class="watchlist-item-icon">💪</div><div class="watchlist-item-text">One side becomes weak</div><div class="watchlist-item-tap">TAP →</div></div>
+    </div>
+    <div class="guide-box" style="margin-bottom:14px"><b style="color:var(--text)">First aid reminder:</b><br>Keep him lying still. Do not move his neck. Do not give food or water. Press a folded cloth firmly on any bleeding wound.</div>
+    <button class="big-btn teal" onclick="go('s-profile')">✓ He is stable — back to log</button>
+  </div>
+</div>
+
+<!-- QR -->
+<div class="screen" id="s-qr">
+  <div class="status-bar"><span>9:50</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header"><button class="back-btn" onclick="go('s-profile')">←</button><div><div class="header-title">Show Doctor</div><div class="header-sub">At a clinic or hospital</div></div></div>
+  <div class="qr-container">
+    <div style="font-size:13px;color:var(--text-60);line-height:1.6;text-align:center;margin-bottom:4px">Show this to the doctor or nurse. They scan it on their device to see the full patient history.</div>
+    <div class="qr-box">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="40" height="40" fill="#1A2340" rx="4"/><rect x="16" y="16" width="28" height="28" fill="white" rx="2"/><rect x="22" y="22" width="16" height="16" fill="#1A2340" rx="1"/>
+        <rect x="110" y="10" width="40" height="40" fill="#1A2340" rx="4"/><rect x="116" y="16" width="28" height="28" fill="white" rx="2"/><rect x="122" y="22" width="16" height="16" fill="#1A2340" rx="1"/>
+        <rect x="10" y="110" width="40" height="40" fill="#1A2340" rx="4"/><rect x="16" y="116" width="28" height="28" fill="white" rx="2"/><rect x="22" y="122" width="16" height="16" fill="#1A2340" rx="1"/>
+        <rect x="60" y="10" width="8" height="8" fill="#1A2340" rx="1"/><rect x="74" y="10" width="8" height="8" fill="#1A2340" rx="1"/><rect x="88" y="10" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="60" y="24" width="8" height="8" fill="#1A2340" rx="1"/><rect x="88" y="24" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="60" y="38" width="8" height="8" fill="#1A2340" rx="1"/><rect x="74" y="38" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="10" y="60" width="8" height="8" fill="#1A2340" rx="1"/><rect x="24" y="60" width="8" height="8" fill="#1A2340" rx="1"/><rect x="38" y="60" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="60" y="60" width="8" height="8" fill="#1A2340" rx="1"/><rect x="74" y="60" width="8" height="8" fill="#1A2340" rx="1"/><rect x="88" y="60" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="102" y="60" width="8" height="8" fill="#1A2340" rx="1"/><rect x="116" y="60" width="8" height="8" fill="#1A2340" rx="1"/><rect x="130" y="60" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="10" y="74" width="8" height="8" fill="#1A2340" rx="1"/><rect x="38" y="74" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="60" y="74" width="8" height="8" fill="#1A2340" rx="1"/><rect x="88" y="74" width="8" height="8" fill="#1A2340" rx="1"/><rect x="116" y="74" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="10" y="88" width="8" height="8" fill="#1A2340" rx="1"/><rect x="24" y="88" width="8" height="8" fill="#1A2340" rx="1"/><rect x="38" y="88" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="60" y="88" width="8" height="8" fill="#1A2340" rx="1"/><rect x="74" y="88" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="102" y="88" width="8" height="8" fill="#1A2340" rx="1"/><rect x="130" y="88" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="60" y="102" width="8" height="8" fill="#1A2340" rx="1"/><rect x="88" y="102" width="8" height="8" fill="#1A2340" rx="1"/><rect x="116" y="102" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="60" y="116" width="8" height="8" fill="#1A2340" rx="1"/><rect x="74" y="116" width="8" height="8" fill="#1A2340" rx="1"/><rect x="102" y="116" width="8" height="8" fill="#1A2340" rx="1"/><rect x="130" y="116" width="8" height="8" fill="#1A2340" rx="1"/>
+        <rect x="60" y="130" width="8" height="8" fill="#1A2340" rx="1"/><rect x="88" y="130" width="8" height="8" fill="#1A2340" rx="1"/><rect x="116" y="130" width="8" height="8" fill="#1A2340" rx="1"/>
+      </svg>
+    </div>
+    <div class="patient-id">HM · 34</div>
+    <div style="font-size:12px;color:var(--text-60);text-align:center;line-height:1.6">No scanner? Doctor types <b style="color:var(--text)">HM·34</b> into the provider app. Works fully offline.</div>
+    <button class="big-btn teal" style="width:100%;margin-top:20px" onclick="go('s-profile')">← Back to patient log</button>
+  </div>
+</div>
+
+<!-- DAILY CHECK-IN -->
+<div class="screen" id="s-checkin">
+  <div class="status-bar"><span>9:52</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header"><button class="back-btn" onclick="go('s-profile')">←</button><div><div class="header-title">Daily Check-in</div><div class="header-sub">Day 34 · Today</div></div></div>
+  <div class="scroll">
+    <div style="font-size:13px;color:var(--text-60);line-height:1.6;margin-bottom:16px">Answer about how HM has been <b style="color:var(--text)">today</b>. Saved to his log automatically.</div>
+    <div class="checkin-q">
+      <div class="checkin-q-label">🧠 How is his confusion today?</div>
+      <div class="checkin-options">
+        <button class="checkin-opt" onclick="pick(this,'c1','sel-red')">Worse</button>
+        <button class="checkin-opt" onclick="pick(this,'c1','sel-amber')">Same</button>
+        <button class="checkin-opt sel-teal" onclick="pick(this,'c1','sel-teal')">Better</button>
+      </div>
+    </div>
+    <div class="checkin-q">
+      <div class="checkin-q-label">🤕 Headache severity?</div>
+      <div class="checkin-options">
+        <button class="checkin-opt sel-teal" onclick="pick(this,'c2','sel-teal')">None</button>
+        <button class="checkin-opt" onclick="pick(this,'c2','sel-amber')">Mild</button>
+        <button class="checkin-opt" onclick="pick(this,'c2','sel-red')">Severe</button>
+      </div>
+    </div>
+    <div class="checkin-q">
+      <div class="checkin-q-label">⚡ Any seizures today?</div>
+      <div class="checkin-options">
+        <button class="checkin-opt sel-teal" onclick="pick(this,'c3','sel-teal')">No</button>
+        <button class="checkin-opt" onclick="pick(this,'c3','sel-red');setTimeout(()=>go('s-alert'),400)">Yes — go to hospital</button>
+      </div>
+    </div>
+    <div class="checkin-q">
+      <div class="checkin-q-label">🕐 Hours active today?</div>
+      <div class="checkin-options">
+        <button class="checkin-opt" onclick="pick(this,'c4','sel-red')">&lt;1 hr</button>
+        <button class="checkin-opt sel-amber" onclick="pick(this,'c4','sel-amber')">1–3 hrs</button>
+        <button class="checkin-opt" onclick="pick(this,'c4','sel-teal')">&gt;3 hrs</button>
+      </div>
+    </div>
+    <div class="checkin-q">
+      <div class="checkin-q-label">😤 Mood today?</div>
+      <div class="checkin-options">
+        <button class="checkin-opt" onclick="pick(this,'c5','sel-red')">😡 Angry</button>
+        <button class="checkin-opt sel-amber" onclick="pick(this,'c5','sel-amber')">😐 Neutral</button>
+        <button class="checkin-opt" onclick="pick(this,'c5','sel-teal')">🙂 Calm</button>
+      </div>
+    </div>
+    <button class="big-btn teal" onclick="go('s-profile')">✓ Save Check-in</button>
+  </div>
+</div>
+
+<!-- REHAB HOME -->
+<div class="screen" id="s-rehab">
+  <div class="status-bar"><span>9:55</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header"><button class="back-btn" onclick="go('s-profile')">←</button><div><div class="header-title">Rehab Exercises</div><div class="header-sub">All videos available offline</div></div></div>
+  <div class="scroll">
+    <div style="font-size:13px;color:var(--text-60);line-height:1.6;margin-bottom:16px">Exercises prescribed by HM's doctor. Do daily. Go slowly and stop if there is pain.</div>
+    <div class="rehab-category" onclick="go('s-rehab-walking')"><div class="rehab-icon" style="background:var(--teal-bg)">🚶</div><div><div class="rehab-title">Moving Around</div><div class="rehab-count">Walking, balance, getting up safely</div></div><div class="rehab-arrow">›</div></div>
+    <div class="rehab-category" onclick="go('s-rehab-hands')"><div class="rehab-icon" style="background:var(--amber-bg)">✋</div><div><div class="rehab-title">Using Hands</div><div class="rehab-count">Grip strength, right side weakness</div></div><div class="rehab-arrow">›</div></div>
+    <div class="rehab-category" onclick="go('s-rehab-cognitive')"><div class="rehab-icon" style="background:var(--blue-bg)">🧩</div><div><div class="rehab-title">Memory & Thinking</div><div class="rehab-count">Simple daily cognitive exercises</div></div><div class="rehab-arrow">›</div></div>
+    <div class="rehab-category" onclick="go('s-rehab-mood')"><div class="rehab-icon" style="background:var(--red-bg)">❤️</div><div><div class="rehab-title">Mood & Behaviour</div><div class="rehab-count">For caregivers — managing outbursts</div></div><div class="rehab-arrow">›</div></div>
+    <div class="section-label" style="margin-top:20px">For You — The Caregiver</div>
+    <div class="caregiver-note"><b style="color:var(--text);display:block;margin-bottom:6px">You are doing an important job. 🌱</b>His irritability and mood changes are caused by the brain injury — not his character. It is not your fault and not his fault. Brain recovery takes many months. Small improvements every week are a good sign.</div>
+  </div>
+</div>
+
+<!-- REHAB: WALKING -->
+<div class="screen" id="s-rehab-walking">
+  <div class="status-bar"><span>9:56</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header"><button class="back-btn" onclick="go('s-rehab')">←</button><div><div class="header-title">Moving Around</div><div class="header-sub">Balance & walking exercises</div></div></div>
+  <div class="scroll">
+    <div class="video-list">
+      <div class="video-card">
+        <div class="video-thumb" style="background:linear-gradient(135deg,#1a2340,#243054);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;opacity:0.05;background:repeating-linear-gradient(45deg,white,white 1px,transparent 1px,transparent 8px)"></div>
+          <div style="font-size:40px;z-index:1">🚶</div>
+          <div style="z-index:1">
+            <div style="color:white;font-size:13px;font-weight:700;margin-bottom:4px">Balance & Walking Exercise</div>
+            <div style="color:rgba(255,255,255,0.6);font-size:11px;line-height:1.5">8 min · Shows heel-to-toe walking, chair support balance</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:600;color:white;z-index:1">📥 Pre-loaded on device</div>
+        </div>
+        <div class="video-info"><div class="video-title">Balance & Coordination After Brain Injury</div><div class="video-meta">Flint Rehab · ~8 min</div><span class="video-tag">🚶 Balance</span></div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb" style="background:linear-gradient(135deg,#1a2340,#243054);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;opacity:0.05;background:repeating-linear-gradient(45deg,white,white 1px,transparent 1px,transparent 8px)"></div>
+          <div style="font-size:40px;z-index:1">🦵</div>
+          <div style="z-index:1">
+            <div style="color:white;font-size:13px;font-weight:700;margin-bottom:4px">Gait Training at Home</div>
+            <div style="color:rgba(255,255,255,0.6);font-size:11px;line-height:1.5">10 min · Step-over exercises, walking with support</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:600;color:white;z-index:1">📥 Pre-loaded on device</div>
+        </div>
+        <div class="video-info"><div class="video-title">Walking & Gait Training at Home</div><div class="video-meta">Bob & Brad PT · ~10 min</div><span class="video-tag">🚶 Gait</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REHAB: HANDS -->
+<div class="screen" id="s-rehab-hands">
+  <div class="status-bar"><span>9:57</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header"><button class="back-btn" onclick="go('s-rehab')">←</button><div><div class="header-title">Using Hands</div><div class="header-sub">Grip & fine motor exercises</div></div></div>
+  <div class="scroll">
+    <div class="video-list">
+      <div class="video-card">
+        <div class="video-thumb" style="background:linear-gradient(135deg,#1a2340,#243054);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;opacity:0.05;background:repeating-linear-gradient(45deg,white,white 1px,transparent 1px,transparent 8px)"></div>
+          <div style="font-size:40px;z-index:1">✋</div>
+          <div style="z-index:1">
+            <div style="color:white;font-size:13px;font-weight:700;margin-bottom:4px">Hand Grip Exercises</div>
+            <div style="color:rgba(255,255,255,0.6);font-size:11px;line-height:1.5">7 min · Squeeze and release, finger extensions</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:600;color:white;z-index:1">📥 Pre-loaded on device</div>
+        </div>
+        <div class="video-info"><div class="video-title">Hand & Grip Strength After Brain Injury</div><div class="video-meta">Flint Rehab · ~7 min</div><span class="video-tag">✋ Fine Motor</span></div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb" style="background:linear-gradient(135deg,#1a2340,#243054);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;opacity:0.05;background:repeating-linear-gradient(45deg,white,white 1px,transparent 1px,transparent 8px)"></div>
+          <div style="font-size:40px;z-index:1">🤲</div>
+          <div style="z-index:1">
+            <div style="color:white;font-size:13px;font-weight:700;margin-bottom:4px">Wrist & Finger Rehab</div>
+            <div style="color:rgba(255,255,255,0.6);font-size:11px;line-height:1.5">9 min · Rotation, flexion, simple grip tasks</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:600;color:white;z-index:1">📥 Pre-loaded on device</div>
+        </div>
+        <div class="video-info"><div class="video-title">Finger & Wrist Rehabilitation Exercises</div><div class="video-meta">Bob & Brad PT · ~9 min</div><span class="video-tag">✋ Grip</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REHAB: COGNITIVE -->
+<div class="screen" id="s-rehab-cognitive">
+  <div class="status-bar"><span>9:58</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header"><button class="back-btn" onclick="go('s-rehab')">←</button><div><div class="header-title">Memory & Thinking</div><div class="header-sub">Cognitive rehabilitation</div></div></div>
+  <div class="scroll">
+    <div class="video-list">
+      <div class="video-card">
+        <div class="video-thumb" style="background:linear-gradient(135deg,#1a2340,#243054);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;opacity:0.05;background:repeating-linear-gradient(45deg,white,white 1px,transparent 1px,transparent 8px)"></div>
+          <div style="font-size:40px;z-index:1">🧠</div>
+          <div style="z-index:1">
+            <div style="color:white;font-size:13px;font-weight:700;margin-bottom:4px">Memory & Focus Exercises</div>
+            <div style="color:rgba(255,255,255,0.6);font-size:11px;line-height:1.5">6 min · Recall tasks, attention exercises, routine building</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:600;color:white;z-index:1">📥 Pre-loaded on device</div>
+        </div>
+        <div class="video-info"><div class="video-title">Cognitive Exercises After TBI — Memory & Focus</div><div class="video-meta">Flint Rehab · ~6 min</div><span class="video-tag">🧩 Memory</span></div>
+      </div>
+    </div>
+    <div class="guide-box" style="margin-top:10px"><b style="color:var(--text)">Daily routine tip:</b><br>Help HM do one simple task the same way every day — like making tea or folding a cloth. Repetition helps the brain form new pathways. 🧠</div>
+  </div>
+</div>
+
+<!-- REHAB: MOOD -->
+<div class="screen" id="s-rehab-mood">
+  <div class="status-bar"><span>9:59</span><span class="offline-badge">⚡ OFFLINE MODE</span><span>▮▮▮</span></div>
+  <div class="header"><button class="back-btn" onclick="go('s-rehab')">←</button><div><div class="header-title">Mood & Behaviour</div><div class="header-sub">Guidance for caregivers</div></div></div>
+  <div class="scroll">
+    <div class="video-list">
+      <div class="video-card">
+        <div class="video-thumb" style="background:linear-gradient(135deg,#1a2340,#243054);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;opacity:0.05;background:repeating-linear-gradient(45deg,white,white 1px,transparent 1px,transparent 8px)"></div>
+          <div style="font-size:40px;z-index:1">❤️</div>
+          <div style="z-index:1">
+            <div style="color:white;font-size:13px;font-weight:700;margin-bottom:4px">Emotional Changes After TBI</div>
+            <div style="color:rgba(255,255,255,0.6);font-size:11px;line-height:1.5">5 min · Caregiver guidance on mood and behaviour</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:600;color:white;z-index:1">📥 Pre-loaded on device</div>
+        </div>
+        <div class="video-info"><div class="video-title">Understanding Emotional Changes After TBI</div><div class="video-meta">Caregiver guidance · ~5 min</div><span class="video-tag">❤️ For Caregivers</span></div>
+      </div>
+    </div>
+    <div class="caregiver-note" style="margin-top:10px"><b style="color:var(--text);display:block;margin-bottom:6px">When he gets angry or upset:</b>Stay calm. Speak slowly and softly. Do not argue. Give him space and check again in 10 minutes. His brain is working very hard to heal. The outbursts are not about you. 💙</div>
+  </div>
+</div>
+
+</div>
 <script>
-// ══════════════════════════════════════════
-//  STATE
-// ══════════════════════════════════════════
-const STORAGE_KEY = 'spyke_saved';
-let savedPapers = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-let currentView = 'trending';
-let currentSort = 'relevance';
-let allPapers = [];
-let selectedPaper = null;
-let summaryCache = {};
-let isLoading = false;
-
-// Field query map
-const FIELD_QUERIES = {
-  'trending':            'neuroscience OR "cognitive science" OR psychiatry',
-  'new':                 'neuroscience OR "cognitive science" OR psychiatry',
-  'preprints':           'neuroscience',
-  'field:neuroscience':  'neuroscience brain neural',
-  'field:cognitive':     '"cognitive science" OR "cognitive neuroscience" OR cognition memory attention',
-  'field:psychiatry':    'psychiatry depression anxiety schizophrenia mental health',
-  'field:neuroimaging':  'fMRI MRI neuroimaging brain imaging',
-  'field:computational': '"computational neuroscience" OR "neural population" OR manifold brain',
-  'field:clinical':      '"clinical neurology" OR stroke OR "traumatic brain injury" OR epilepsy OR Alzheimer',
-  'field:molecular':     '"molecular neuroscience" OR synapse OR neurotransmitter OR ion channel',
-  'field:bci':           '"brain computer interface" OR BCI OR neuroprosthetics OR neural decoding',
-};
-
-const FIELD_TITLES = {
-  'trending':            'Trending on Spyke',
-  'new':                 'New This Week',
-  'preprints':           'Latest Preprints',
-  'saved':               'Saved Papers',
-  'field:neuroscience':  'Neuroscience',
-  'field:cognitive':     'Cognitive Science',
-  'field:psychiatry':    'Psychiatry',
-  'field:neuroimaging':  'Neuroimaging',
-  'field:computational': 'Computational Neuroscience',
-  'field:clinical':      'Clinical Neurology',
-  'field:molecular':     'Molecular Neuroscience',
-  'field:bci':           'Brain-Computer Interfaces',
-};
-
-// ══════════════════════════════════════════
-//  API CALLS
-// ══════════════════════════════════════════
-
-async function fetchOpenAlex(query, perPage = 20, sortBy = 'cited_by_count') {
-  const fromDate = currentView === 'new'
-    ? new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0]
-    : new Date(Date.now() - 365 * 86400000).toISOString().split('T')[0];
-  const params = new URLSearchParams({
-    search: query,
-    'filter': `from_publication_date:${fromDate},type:article`,
-    sort: `${sortBy}:desc`,
-    per_page: perPage,
-    select: 'id,title,authorships,publication_date,primary_location,abstract_inverted_index,cited_by_count,concepts,open_access,doi',
-    'mailto': 'neurofeed@research.com'
+function go(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const t=document.getElementById(id);
+  if(t){t.classList.add('active');t.querySelector('.scroll')?.scrollTo(0,0);}
+}
+function pick(btn,grp,cls){
+  btn.closest('.checkin-options').querySelectorAll('.checkin-opt').forEach(b=>{
+    b.className='checkin-opt';
   });
-  const resp = await fetch(`https://api.openalex.org/works?${params}`);
-  if (!resp.ok) throw new Error('OpenAlex API error');
-  const data = await resp.json();
-  return data.results || [];
+  btn.classList.add(cls);
 }
-
-async function fetchSemanticScholar(query, limit = 20) {
-  const params = new URLSearchParams({
-    query, limit,
-    fields: 'paperId,title,authors,year,citationCount,influentialCitationCount,abstract,externalIds,publicationDate,journal,fieldsOfStudy,isOpenAccess,openAccessPdf'
-  });
-  const resp = await fetch(`https://api.semanticscholar.org/graph/v1/paper/search?${params}`);
-  if (!resp.ok) throw new Error('Semantic Scholar API error');
-  const data = await resp.json();
-  return data.data || [];
-}
-
-async function fetchBioRxiv(days = 7) {
-  const end = new Date().toISOString().split('T')[0];
-  const start = new Date(Date.now() - days * 86400000).toISOString().split('T')[0];
-  try {
-    const resp = await fetch(`https://api.biorxiv.org/details/biorxiv/${start}/${end}/0/json`);
-    if (!resp.ok) return [];
-    const data = await resp.json();
-    return (data.collection || []).filter(p =>
-      p.category && (p.category.includes('neuroscience') || p.category.includes('neuro'))
-    ).slice(0, 20);
-  } catch(e) { return []; }
-}
-
-async function fetchEuropePMCCount(pmid) {
-  if (!pmid) return null;
-  try {
-    const resp = await fetch(
-      `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:${pmid}&format=json&resultType=core`,
-      { signal: AbortSignal.timeout(5000) }
-    );
-    if (!resp.ok) return null;
-    const data = await resp.json();
-    const result = data.resultList?.result?.[0];
-    return result ? {
-      citedByCount: result.citedByCount || 0,
-      inEPMC: result.inEPMC === 'Y',
-      isOpenAccess: result.isOpenAccess === 'Y',
-    } : null;
-  } catch(e) { return null; }
-}
-
-async function fetchEuropePMCCounts() {
-  for (const paper of allPapers.slice(0, 8)) {
-    if (paper.pmid) {
-      const data = await fetchEuropePMCCount(paper.pmid);
-      if (data) {
-        paper.europePMCCitations = data.citedByCount;
-        paper.inEPMC = data.inEPMC;
-      }
-      await new Promise(r => setTimeout(r, 200));
-    }
-  }
-}
-
-async function fetchHuggingFaceSummary(text) {
-  try {
-    const resp = await fetch(
-      'https://api-inference.huggingface.co/models/facebook/bart-large-cnn',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          inputs: text.slice(0, 1024),
-          parameters: { max_length: 120, min_length: 40, do_sample: false }
-        }),
-        signal: AbortSignal.timeout(15000)
-      }
-    );
-    if (!resp.ok) return null;
-    const data = await resp.json();
-    if (Array.isArray(data) && data[0]?.summary_text) return data[0].summary_text;
-    return null;
-  } catch(e) {
-    return null;
-  }
-}
-
-async function fetchRelatedPapers(semanticScholarId) {
-  if (!semanticScholarId) return [];
-  try {
-    const resp = await fetch(
-      `https://api.semanticscholar.org/graph/v1/paper/${semanticScholarId}/recommendations?limit=5&fields=title,authors,year,citationCount`
-    );
-    if (!resp.ok) return [];
-    const data = await resp.json();
-    return data.recommendedPapers || [];
-  } catch(e) {
-    return [];
-  }
-}
-
-// ══════════════════════════════════════════
-//  DATA NORMALISATION
-// ══════════════════════════════════════════
-
-function normaliseOpenAlex(raw) {
-  let abstract = '';
-  if (raw.abstract_inverted_index) {
-    const words = {};
-    for (const [word, positions] of Object.entries(raw.abstract_inverted_index)) {
-      for (const pos of positions) words[pos] = word;
-    }
-    abstract = Object.keys(words).sort((a,b) => a-b).map(k => words[k]).join(' ');
-  }
-  const authors = (raw.authorships || []).slice(0,3).map(a => a.author?.display_name || '').filter(Boolean);
-  const doi = raw.doi?.replace('https://doi.org/', '') || '';
-  const pmid = raw.ids?.pmid?.replace('https://pubmed.ncbi.nlm.nih.gov/', '') || '';
-  return {
-    id: raw.id,
-    source: 'openalex',
-    title: raw.title || 'Untitled',
-    authors,
-    abstract,
-    year: raw.publication_date?.slice(0,4) || '',
-    date: raw.publication_date || '',
-    citations: raw.cited_by_count || 0,
-    journal: raw.primary_location?.source?.display_name || '',
-    concepts: (raw.concepts || []).slice(0,3).map(c => c.display_name),
-    doi,
-    pmid,
-    openAccess: raw.open_access?.is_oa || false,
-    url: doi ? `https://doi.org/${doi}` : raw.id,
-    isPreprint: false,
-    isNew: isWithinDays(raw.publication_date, 7),
-    isHot: (raw.cited_by_count || 0) > 50,
-  };
-}
-
-function normaliseSemanticScholar(raw) {
-  const doi = raw.externalIds?.DOI || '';
-  const pmid = raw.externalIds?.PubMed || '';
-  return {
-    id: 'ss_' + raw.paperId,
-    ssId: raw.paperId,
-    source: 'semanticscholar',
-    title: raw.title || 'Untitled',
-    authors: (raw.authors || []).slice(0,3).map(a => a.name),
-    abstract: raw.abstract || '',
-    year: raw.year?.toString() || '',
-    date: raw.publicationDate || '',
-    citations: raw.citationCount || 0,
-    influentialCitations: raw.influentialCitationCount || 0,
-    journal: raw.journal?.name || '',
-    doi,
-    pmid,
-    openAccess: raw.isOpenAccess || false,
-    url: doi ? `https://doi.org/${doi}` : `https://www.semanticscholar.org/paper/${raw.paperId}`,
-    isPreprint: false,
-    isNew: isWithinDays(raw.publicationDate, 7),
-    isHot: (raw.influentialCitationCount || 0) > 10,
-  };
-}
-
-function normaliseBioRxiv(raw) {
-  return {
-    id: 'biorxiv_' + raw.doi,
-    source: 'biorxiv',
-    title: raw.title || 'Untitled',
-    authors: (raw.authors || '').split(';').slice(0,3).map(a => a.trim()),
-    abstract: raw.abstract || '',
-    year: (raw.date || '').slice(0,4),
-    date: raw.date || '',
-    citations: 0,
-    journal: 'bioRxiv',
-    doi: raw.doi,
-    openAccess: true,
-    url: `https://doi.org/${raw.doi}`,
-    altmetric: null,
-    isPreprint: true,
-    isNew: true,
-    isHot: false,
-  };
-}
-
-function isWithinDays(dateStr, days) {
-  if (!dateStr) return false;
-  const d = new Date(dateStr);
-  return (Date.now() - d.getTime()) < days * 86400000;
-}
-
-function dedupeByTitle(papers) {
-  const seen = new Set();
-  return papers.filter(p => {
-    const key = p.title.toLowerCase().slice(0, 60);
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
-
-// ══════════════════════════════════════════
-//  FEED LOADING
-// ══════════════════════════════════════════
-
-async function loadFeed() {
-  if (isLoading) return;
-  if (currentView === 'saved') { renderSaved(); return; }
-
-  isLoading = true;
-  document.getElementById('refresh-btn').disabled = true;
-  document.getElementById('feed').innerHTML = `
-    <div class="loading-feed">
-      <div class="loading-spinner"></div>
-      <div>Fetching from OpenAlex, Semantic Scholar${currentView === 'preprints' ? ', bioRxiv' : ''}…</div>
-    </div>`;
-
-  allPapers = [];
-
-  try {
-    const query = FIELD_QUERIES[currentView] || FIELD_QUERIES['trending'];
-
-    if (currentView === 'preprints') {
-      // bioRxiv + OpenAlex preprints
-      const [biorxiv, openalex] = await Promise.allSettled([
-        fetchBioRxiv(14),
-        fetchOpenAlex('neuroscience brain', 15, 'publication_date')
-      ]);
-      if (biorxiv.status === 'fulfilled') allPapers.push(...biorxiv.value.map(normaliseBioRxiv));
-      if (openalex.status === 'fulfilled') allPapers.push(...openalex.value.map(normaliseOpenAlex));
-    } else {
-      // OpenAlex + Semantic Scholar in parallel
-      const sortMap = {
-        'relevance': 'cited_by_count',
-        'citations': 'cited_by_count',
-        'date': 'publication_date',
-        'altmetric': 'cited_by_count',
-      };
-      const [oa, ss] = await Promise.allSettled([
-        fetchOpenAlex(query, 15, sortMap[currentSort]),
-        fetchSemanticScholar(query, 10)
-      ]);
-      if (oa.status === 'fulfilled') allPapers.push(...oa.value.map(normaliseOpenAlex));
-      if (ss.status === 'fulfilled') allPapers.push(...ss.value.map(normaliseSemanticScholar));
-    }
-
-    allPapers = dedupeByTitle(allPapers);
-
-    // Sort
-    if (currentSort === 'citations') allPapers.sort((a,b) => b.citations - a.citations);
-    else if (currentSort === 'date') allPapers.sort((a,b) => b.date.localeCompare(a.date));
-    else allPapers.sort((a,b) => (b.citations + (b.influentialCitations||0)*3) - (a.citations + (a.influentialCitations||0)*3));
-
-    // Update counts — store globally so they persist across view switches
-    const newCount = allPapers.filter(p => p.isNew).length;
-    const preprintCount = allPapers.filter(p => p.isPreprint).length;
-
-    if (currentView === 'trending') document.getElementById('count-trending').textContent = allPapers.length;
-    if (currentView === 'new') document.getElementById('count-new').textContent = newCount || allPapers.length;
-    if (currentView === 'preprints') document.getElementById('count-preprints').textContent = preprintCount || allPapers.length;
-
-    // Always update new/preprint counts from any view if we have the data
-    if (newCount > 0) document.getElementById('count-new').textContent = newCount;
-    if (preprintCount > 0) document.getElementById('count-preprints').textContent = preprintCount;
-    document.getElementById('count-saved').textContent = Object.keys(savedPapers).length;
-
-    document.getElementById('feed-title').textContent = FIELD_TITLES[currentView] || 'Papers';
-    document.getElementById('feed-meta').textContent = `${allPapers.length} papers · updated just now`;
-
-    renderFeed(allPapers);
-
-    // Fetch Europe PMC citation counts in background
-    fetchEuropePMCCounts();
-
-  } catch(e) {
-    document.getElementById('feed').innerHTML = `
-      <div class="empty-state">
-        <div style="font-size:28px">⚠️</div>
-        <div style="font-size:14px;color:var(--text-2)">Could not load papers</div>
-        <div style="font-size:12px">${e.message}</div>
-      </div>`;
-  }
-
-  isLoading = false;
-  document.getElementById('refresh-btn').disabled = false;
-}
-
-
-
-// ══════════════════════════════════════════
-//  RENDER
-// ══════════════════════════════════════════
-
-function renderFeed(papers) {
-  if (!papers.length) {
-    document.getElementById('feed').innerHTML = `
-      <div class="empty-state">
-        <div style="font-size:28px">🔍</div>
-        <div>No papers found</div>
-      </div>`;
-    return;
-  }
-
-  document.getElementById('feed').innerHTML = papers.map((p, i) => `
-    <div class="paper-card" id="card-${CSS.escape(p.id)}" onclick="selectPaper('${p.id}')">
-      <div class="card-top">
-        <div class="card-rank">${i+1}</div>
-        <div class="card-body">
-          <div class="card-tags">
-            ${p.isPreprint ? '<span class="tag tag-preprint">Preprint</span>' : ''}
-            ${p.isNew ? '<span class="tag tag-new">New</span>' : ''}
-            ${p.isHot ? '<span class="tag tag-hot">🔥 Trending</span>' : ''}
-            ${p.concepts?.slice(0,2).map(c => `<span class="tag tag-field">${esc(c)}</span>`).join('') || ''}
-          </div>
-          <div class="card-title">${esc(p.title)}</div>
-          <div class="card-authors">${esc(p.authors.join(', '))}${p.authors.length ? ' · ' : ''}${p.year}</div>
-          ${p.abstract ? `<div class="card-abstract">${esc(p.abstract)}</div>` : ''}
-        </div>
-        <button class="card-save ${savedPapers[p.id] ? 'saved' : ''}"
-                onclick="toggleSave('${p.id}', event)" title="Save paper">
-          ${savedPapers[p.id] ? '🔖' : '＋'}
-        </button>
-      </div>
-      <div class="card-footer">
-        <span class="card-stat">
-          <svg viewBox="0 0 24 24"><path d="M9 11H5a2 2 0 00-2 2v7h4v-4h4v4h4v-7a2 2 0 00-2-2h-4z"/></svg>
-          ${p.citations.toLocaleString()} citations
-        </span>
-        ${p.influentialCitations ? `<span class="card-stat hot">★ ${p.influentialCitations} influential</span>` : ''}
-
-        ${p.openAccess ? '<span class="card-stat new-stat">🔓 Open access</span>' : ''}
-        <span class="card-journal">${esc(p.journal.slice(0,30))}</span>
-        ${renderSparkline(p.citations)}
-      </div>
-    </div>`
-  ).join('');
-}
-
-function renderSparkline(citations) {
-  // Generate a fake sparkline based on citation count for visual interest
-  const pts = Array.from({length: 8}, (_,i) =>
-    Math.max(2, Math.round(Math.random() * Math.min(citations / 5 + 5, 30) + (i * citations / 40)))
-  );
-  const max = Math.max(...pts, 1);
-  const w = 60, h = 18;
-  const points = pts.map((v, i) =>
-    `${Math.round(i * w / (pts.length-1))},${Math.round(h - (v/max)*h)}`
-  ).join(' ');
-  return `<svg class="sparkline" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
-    <polyline points="${points}" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linejoin="round" opacity="0.7"/>
-  </svg>`;
-}
-
-function renderSaved() {
-  const saved = Object.values(savedPapers);
-  document.getElementById('feed-title').textContent = 'Saved Papers';
-  document.getElementById('feed-meta').textContent = `${saved.length} paper${saved.length!==1?'s':''} saved`;
-  allPapers = saved;
-  if (!saved.length) {
-    document.getElementById('feed').innerHTML = `
-      <div class="empty-state">
-        <div style="font-size:28px">🔖</div>
-        <div>No saved papers yet</div>
-        <div style="font-size:12px">Click + on any paper to save it</div>
-      </div>`;
-  } else {
-    renderFeed(saved);
-  }
-}
-
-// ══════════════════════════════════════════
-//  PAPER DETAIL
-// ══════════════════════════════════════════
-
-async function selectPaper(id) {
-  const paper = allPapers.find(p => p.id === id);
-  if (!paper) return;
-  selectedPaper = paper;
-
-  // Update card active state
-  document.querySelectorAll('.paper-card').forEach(c => c.classList.remove('active'));
-  document.getElementById('card-' + CSS.escape(id))?.classList.add('active');
-
-  const detail = document.getElementById('detail');
-  detail.innerHTML = `
-    <div class="detail-content">
-      <div class="detail-tags">
-        ${paper.isPreprint ? '<span class="tag tag-preprint">Preprint</span>' : ''}
-        ${paper.isNew ? '<span class="tag tag-new">New</span>' : ''}
-        ${paper.isHot ? '<span class="tag tag-hot">🔥 Trending</span>' : ''}
-        ${paper.openAccess ? '<span class="tag tag-new">🔓 Open access</span>' : ''}
-      </div>
-      <div class="detail-title">${esc(paper.title)}</div>
-      <div class="detail-authors">${esc(paper.authors.join(', '))}${paper.authors.length && paper.year ? ' · ' : ''}${paper.year}${paper.journal ? ' · ' + esc(paper.journal) : ''}</div>
-
-      <div class="detail-meta">
-        <div class="detail-meta-item">
-          <div class="detail-meta-label">Citations</div>
-          <div class="detail-meta-val teal">${paper.citations.toLocaleString()}</div>
-        </div>
-        <div class="detail-meta-item">
-          <div class="detail-meta-label">Influential</div>
-          <div class="detail-meta-val amber">${paper.influentialCitations || '—'}</div>
-        </div>
-        <div class="detail-meta-item">
-          <div class="detail-meta-label">Published</div>
-          <div class="detail-meta-val" style="font-size:13px">${paper.date || paper.year || '—'}</div>
-        </div>
-        <div class="detail-meta-item">
-          <div class="detail-meta-label">Open access</div>
-          <div class="detail-meta-val violet">${paper.openAccess ? '✓ Yes' : 'No'}</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="section-label">AI Summary</div>
-        <div class="detail-summary" id="ai-summary">
-          <div class="summary-loading">
-            <div class="dots"><span></span><span></span><span></span></div>
-            Generating summary…
-          </div>
-        </div>
-      </div>
-
-      ${paper.abstract ? `
-      <div>
-        <div class="section-label">Abstract</div>
-        <div class="detail-abstract">${esc(paper.abstract)}</div>
-      </div>` : ''}
-
-      <div class="detail-actions">
-        <a class="action-btn btn-pubmed" href="${paper.url}" target="_blank">
-          Read paper ↗
-        </a>
-        <button class="action-btn btn-save ${savedPapers[paper.id] ? 'saved' : ''}"
-                id="detail-save-btn"
-                onclick="toggleSave('${paper.id}', event)">
-          ${savedPapers[paper.id] ? '🔖 Saved' : '+ Save'}
-        </button>
-      </div>
-
-      <div id="related-section">
-        <div class="section-label">Related papers</div>
-        <div id="related-list" class="related-list">
-          <div style="font-size:12px;color:var(--text-3)">Loading…</div>
-        </div>
-      </div>
-    </div>`;
-
-  // Fetch AI summary
-  generateSummary(paper);
-
-  // Fetch related papers
-  if (paper.ssId) {
-    fetchRelatedPapers(paper.ssId).then(related => {
-      const el = document.getElementById('related-list');
-      if (!el) return;
-      if (!related.length) { el.innerHTML = '<div style="font-size:12px;color:var(--text-3)">No related papers found</div>'; return; }
-      el.innerHTML = related.map(r => `
-        <div class="related-item" onclick="openExternal('${r.externalIds?.DOI ? 'https://doi.org/'+r.externalIds.DOI : '#'}')">
-          <div class="related-title">${esc(r.title || '')}</div>
-          <div class="related-meta">${(r.authors||[]).slice(0,2).map(a=>a.name).join(', ')} · ${r.year || ''} · ${(r.citationCount||0).toLocaleString()} citations</div>
-        </div>`).join('');
-    });
-  } else {
-    document.getElementById('related-list').innerHTML = '<div style="font-size:12px;color:var(--text-3)">Upload a Semantic Scholar ID for related papers</div>';
-  }
-}
-
-function openExternal(url) { if (url && url !== '#') window.open(url, '_blank'); }
-
-async function generateSummary(paper) {
-  const summaryEl = document.getElementById('ai-summary');
-  if (!summaryEl) return;
-
-  // Check cache
-  if (summaryCache[paper.id]) {
-    summaryEl.textContent = summaryCache[paper.id];
-    return;
-  }
-
-  if (!paper.abstract || paper.abstract.length < 50) {
-    summaryEl.textContent = 'No abstract available for summarization.';
-    return;
-  }
-
-  try {
-    const summary = await fetchHuggingFaceSummary(paper.abstract);
-    if (summary && summaryEl) {
-      summaryEl.textContent = summary;
-      summaryCache[paper.id] = summary;
-    } else if (summaryEl) {
-      // Fallback: first 2 sentences of abstract
-      const sentences = paper.abstract.split(/\.\s+/).slice(0, 2).join('. ') + '.';
-      summaryEl.textContent = sentences;
-      summaryCache[paper.id] = sentences;
-    }
-  } catch(e) {
-    if (summaryEl) summaryEl.textContent = paper.abstract.split(/\.\s+/).slice(0,2).join('. ') + '.';
-  }
-}
-
-// ══════════════════════════════════════════
-//  INTERACTIONS
-// ══════════════════════════════════════════
-
-function setView(view, btn) {
-  currentView = view;
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  loadFeed();
-}
-
-function setSort(sort, btn) {
-  currentSort = sort;
-  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  if (allPapers.length) {
-    if (sort === 'citations') allPapers.sort((a,b) => b.citations - a.citations);
-    else if (sort === 'date') allPapers.sort((a,b) => b.date.localeCompare(a.date));
-    else if (sort === 'influential') allPapers.sort((a,b) => (b.influentialCitations||0) - (a.influentialCitations||0));
-    else allPapers.sort((a,b) => (b.citations + (b.influentialCitations||0)*3) - (a.citations + (a.influentialCitations||0)*3));
-    renderFeed(allPapers);
-  } else {
-    loadFeed();
-  }
-}
-
-function toggleSave(id, e) {
-  e.stopPropagation();
-  const paper = allPapers.find(p => p.id === id);
-  if (!paper) return;
-
-  if (savedPapers[id]) {
-    delete savedPapers[id];
-    showToast('Removed from saved');
-  } else {
-    savedPapers[id] = paper;
-    showToast('🔖 Paper saved');
-  }
-
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(savedPapers));
-  document.getElementById('count-saved').textContent = Object.keys(savedPapers).length;
-
-  // Update card button
-  const cardSave = document.querySelector(`#card-${CSS.escape(id)} .card-save`);
-  if (cardSave) { cardSave.className = 'card-save' + (savedPapers[id] ? ' saved' : ''); cardSave.textContent = savedPapers[id] ? '🔖' : '＋'; }
-
-  // Update detail button
-  const detailSave = document.getElementById('detail-save-btn');
-  if (detailSave) { detailSave.className = 'action-btn btn-save' + (savedPapers[id] ? ' saved' : ''); detailSave.textContent = savedPapers[id] ? '🔖 Saved' : '+ Save'; }
-}
-
-async function doSearch() {
-  const q = document.getElementById('search-input').value.trim();
-  if (!q) return;
-
-  currentView = 'search:' + q;
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  isLoading = true;
-  document.getElementById('refresh-btn').disabled = true;
-  document.getElementById('feed-title').textContent = `"${q}"`;
-  document.getElementById('feed-meta').textContent = 'Searching…';
-  document.getElementById('feed').innerHTML = `<div class="loading-feed"><div class="loading-spinner"></div><div>Searching…</div></div>`;
-
-  allPapers = [];
-
-  // Detect author name: 2+ words, all letters/spaces
-  const isAuthor = /^[A-Za-zÀ-ÿ\-]+ [A-Za-zÀ-ÿ\-].+$/.test(q);
-
-  try {
-    if (isAuthor) {
-      try {
-        const aResp = await fetch(
-          `https://api.semanticscholar.org/graph/v1/author/search?query=${encodeURIComponent(q)}&limit=3&fields=authorId,name,paperCount,hIndex`
-        );
-        const aData = await aResp.json();
-        const found = aData.data || [];
-        if (found.length > 0) {
-          const best = found[0];
-          document.getElementById('feed-title').textContent = best.name;
-          document.getElementById('feed-meta').textContent = `${best.paperCount || '?'} papers · h-index ${best.hIndex || '?'}`;
-          const pResp = await fetch(
-            `https://api.semanticscholar.org/graph/v1/author/${best.authorId}/papers?limit=20&fields=paperId,title,authors,year,citationCount,influentialCitationCount,abstract,externalIds,publicationDate,journal,isOpenAccess`
-          );
-          const pData = await pResp.json();
-          allPapers = (pData.data || []).map(normaliseSemanticScholar);
-          allPapers.sort((a,b) => b.citations - a.citations);
-        } else {
-          // Fallback: keyword search filtered by author name
-          const [oa, ss] = await Promise.allSettled([
-            fetchOpenAlex(q, 15, 'cited_by_count'),
-            fetchSemanticScholar(q, 10)
-          ]);
-          let raw = [];
-          if (oa.status === 'fulfilled') raw.push(...oa.value.map(normaliseOpenAlex));
-          if (ss.status === 'fulfilled') raw.push(...ss.value.map(normaliseSemanticScholar));
-          const lastName = q.split(' ').pop().toLowerCase();
-          allPapers = raw.filter(p => p.authors.some(a => a.toLowerCase().includes(lastName)));
-          if (!allPapers.length) allPapers = raw;
-        }
-      } catch(e) {
-        console.warn('Author search error:', e);
-      }
-    } else {
-      // Keyword/topic search
-      const [oa, ss] = await Promise.allSettled([
-        fetchOpenAlex(q, 15, 'cited_by_count'),
-        fetchSemanticScholar(q, 10)
-      ]);
-      if (oa.status === 'fulfilled') allPapers.push(...oa.value.map(normaliseOpenAlex));
-      if (ss.status === 'fulfilled') allPapers.push(...ss.value.map(normaliseSemanticScholar));
-    }
-
-    allPapers = dedupeByTitle(allPapers);
-
-    if (!isAuthor || document.getElementById('feed-meta').textContent.includes('Searching')) {
-      document.getElementById('feed-meta').textContent = `${allPapers.length} result${allPapers.length !== 1 ? 's' : ''}`;
-    }
-
-    if (!allPapers.length) {
-      document.getElementById('feed').innerHTML = `<div class="empty-state"><div style="font-size:28px">🔍</div><div>No results for "${esc(q)}"</div></div>`;
-    } else {
-      renderFeed(allPapers);
-    }
-  } catch(e) {
-    console.error('Search error:', e);
-    document.getElementById('feed').innerHTML = `<div class="empty-state"><div style="font-size:28px">⚠️</div><div>Search failed: ${esc(e.message)}</div></div>`;
-  }
-
-  isLoading = false;
-  document.getElementById('refresh-btn').disabled = false;
-}
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2200);
-}
-
-function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-
-function toggleTheme() {
-  document.body.classList.toggle('light-mode');
-  const isLight = document.body.classList.contains('light-mode');
-  document.getElementById('theme-btn').textContent = isLight ? '🌙 Dark' : '☀ Light';
-  localStorage.setItem('spyke_theme', isLight ? 'light' : 'dark');
-  updateLogo();
-}
-// Restore saved theme
-if (localStorage.getItem('spyke_theme') === 'light') {
-  document.body.classList.add('light-mode');
-  document.getElementById('theme-btn').textContent = '🌙 Dark';
-}
-// Set correct logo on load
-window.addEventListener('load', updateLogo);
-
-// ── Init ──
-// Pre-populate sidebar counts
-document.getElementById('count-saved').textContent = Object.keys(savedPapers).length;
-loadFeed();
-
-// Pre-fetch counts for other views in background
-async function prefetchCounts() {
-  try {
-    // New this week count
-    const newResp = await fetchOpenAlex('neuroscience OR "cognitive science" OR psychiatry', 5, 'publication_date');
-    const newCount = newResp.filter(p => isWithinDays(p.publication_date, 7)).length;
-    if (newCount > 0) document.getElementById('count-new').textContent = newCount;
-  } catch(e) {}
-  try {
-    // Preprints count
-    const preprints = await fetchBioRxiv(7);
-    if (preprints.length > 0) document.getElementById('count-preprints').textContent = preprints.length;
-  } catch(e) {}
-}
-setTimeout(prefetchCounts, 1500);
 </script>
 </body>
 </html>
