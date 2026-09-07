@@ -36,7 +36,7 @@ All APIs are free. No keys required.
 
 ## Live
 
-**[spyke.vercel.app](https://spyke-beta.vercel.app)** ← deploy yours here
+**[spyke.vercel.app](https://spyke-beta.vercel.app)** 
 
 ---
 
