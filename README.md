@@ -4,8 +4,6 @@
 
 Spyke is a live brain science paper discovery app. It pulls from three real-time sources (OpenAlex, Semantic Scholar, and bioRxiv) and presents them as a clean, fast, searchable feed organized by field.
 
-No backend. No API keys required. Open the page and it works.
-
 ---
 
 ## Features
