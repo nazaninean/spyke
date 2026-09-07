@@ -38,29 +38,6 @@ All APIs are free. No keys required.
 
 **[spyke.vercel.app](https://spyke-beta.vercel.app)** 
 
----
-
-## Run locally
-
-```bash
-cd ~/Downloads
-python3 -m http.server 3000
-```
-
-Then open: `http://localhost:3000`
-
-> Note: must be served via HTTP (not opened as a file) for the APIs to work.
-
----
-
-## Deploy to Vercel
-
-```bash
-npm i -g vercel
-vercel
-```
-
-Or connect this GitHub repo to [vercel.com](https://vercel.com) for automatic deployments on every push.
 
 ---
 
