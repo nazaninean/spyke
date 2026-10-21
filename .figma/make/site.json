@@ -1,0 +1,10 @@
+{
+  "description": "Stay updated on the latest brain research with concise summaries of new studies, easily filtered by topics like neurodegeneration and sleep.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
