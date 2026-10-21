@@ -62,9 +62,3 @@ All in `src/App.tsx`:
 - PubMed allows about 3 requests per second per visitor without an API key. Normal use is far below that.
 - Some abstracts have no labeled sections, so the two excerpts are just the first and last sentences. Those can read a bit rough.
 - The hero image is loaded from Unsplash, so it needs a connection to show.
-
-## Ideas for later
-
-- Real plain-English summaries, written by an AI model behind a small backend.
-- More topics, and a "load more" button.
-- Saved studies that sync across devices.
