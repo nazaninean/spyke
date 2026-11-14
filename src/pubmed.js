@@ -91,3 +91,10 @@ export async function fetchPapers(topic, query = '') {
 
   return [...xml.querySelectorAll('PubmedArticle')].map((article) => parseArticle(article, topic))
 }
+
+export async function countThisWeek() {
+  const url = `${BASE}/esearch.fcgi?db=pubmed&retmode=json&retmax=0&datetype=pdat&reldate=7&term=${encodeURIComponent(buildTerm('All topics'))}`
+  const res = await fetch(url)
+  if (!res.ok) throw new Error('Count failed')
+  return Number((await res.json()).esearchresult.count)
+}
