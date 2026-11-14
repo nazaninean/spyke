@@ -16,12 +16,14 @@ const TOPIC_PATTERNS = {
   'Mental health': /depress|anxiety|mental health/i,
 }
 
-function buildTerm(topic) {
-  const terms =
-    topic === 'All topics'
-      ? Object.values(TOPIC_TERMS).join(' OR ')
-      : TOPIC_TERMS[topic]
-  return `(${terms}) AND (brain OR neuro*) AND hasabstract`
+function buildTerm(topic, query) {
+  const base = '(brain OR neuro*) AND hasabstract'
+  const topicTerms =
+    topic === 'All topics' ? Object.values(TOPIC_TERMS).join(' OR ') : TOPIC_TERMS[topic]
+
+  if (query && topic === 'All topics') return `(${query}) AND ${base}`
+  if (query) return `(${query}) AND (${topicTerms}) AND ${base}`
+  return `(${topicTerms}) AND ${base}`
 }
 
 function guessTopic(text, fallback) {
@@ -69,8 +71,8 @@ function parseArticle(article, topic) {
   }
 }
 
-export async function fetchPapers(topic) {
-  const searchUrl = `${BASE}/esearch.fcgi?db=pubmed&retmode=json&retmax=12&sort=date&term=${encodeURIComponent(buildTerm(topic))}`
+export async function fetchPapers(topic, query = '') {
+  const searchUrl = `${BASE}/esearch.fcgi?db=pubmed&retmode=json&retmax=12&sort=date&term=${encodeURIComponent(buildTerm(topic, query))}`
   const searchRes = await fetch(searchUrl)
   if (!searchRes.ok) throw new Error('Search failed')
   const ids = (await searchRes.json()).esearchresult.idlist
