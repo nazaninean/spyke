@@ -1,19 +1,26 @@
-# React + Vite
+# Spyke
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Spyke is a feed of new brain research. It pulls recent brain research papers from PubMed and shows each one with a short, plain summary of what the researchers looked at and what they found.
 
-Currently, two official plugins are available:
+Live site: https://your-link.vercel.app.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Live papers from PubMed, filtered by topic (neurodegeneration, sleep, BCI, memory, mental health)
+- Search with debounce, plus a Cmd/Ctrl+K shortcut
+- Save studies to read later (kept in localStorage)
+- Detail page for each study with the full abstract and a link to the original paper
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Stack
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+- React + Vite (JavaScript, React Compiler)
+- Tailwind CSS
+- ESLint
+- PubMed E-utilities API
 
-## Expanding the ESLint configuration
+## Run it locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    npm install
+    npm run dev
+
+Then open http://localhost:5173.
