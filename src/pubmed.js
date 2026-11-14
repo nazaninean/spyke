@@ -59,7 +59,7 @@ function parseArticle(article, topic) {
   const lookedAt = pick(['BACKGROUND', 'OBJECTIVE', 'OBJECTIVES', 'AIM', 'AIMS', 'METHODS']) ?? all[0] ?? ''
   const found = pick(['RESULTS', 'FINDINGS', 'CONCLUSIONS', 'CONCLUSION']) ?? all[all.length - 1] ?? ''
 
-  return {
+    return {
     id,
     source,
     date: [month, year].filter(Boolean).join(' '),
@@ -67,6 +67,7 @@ function parseArticle(article, topic) {
     title,
     lookedAt: shorten(lookedAt),
     found: shorten(found),
+    abstract: fullText,
     readTime: Math.max(1, Math.round(fullText.split(/\s+/).length / 200)),
   }
 }
