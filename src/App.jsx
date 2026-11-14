@@ -4,7 +4,7 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Feed from './components/Feed'
 import StudyPage from './components/StudyPage'
-import { fetchPapers } from './pubmed'
+import { fetchPapers, countThisWeek } from './pubmed'
 
 const readHash = () =>
   window.location.hash.startsWith('#study-') ? window.location.hash.slice(7) : null
@@ -25,6 +25,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [openId, setOpenId] = useState(readHash)
+    const [weekCount, setWeekCount] = useState(null)
 
   useEffect(() => {
     const trimmed = query.trim()
@@ -76,6 +77,12 @@ function App() {
     }
     window.addEventListener('pointermove', moveGlow)
     return () => window.removeEventListener('pointermove', moveGlow)
+  }, [])
+
+    useEffect(() => {
+    countThisWeek()
+      .then(setWeekCount)
+      .catch(() => setWeekCount(null))
   }, [])
 
   useEffect(() => {
@@ -144,7 +151,7 @@ function App() {
         />
       ) : (
         <>
-          <Hero query={query} onQueryChange={setQuery} />
+          <Hero query={query} onQueryChange={setQuery} weekCount={weekCount} />
           <Feed
             papers={visible}
             topic={topic}
