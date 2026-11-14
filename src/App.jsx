@@ -69,6 +69,15 @@ function App() {
     localStorage.setItem('spyke-saved', JSON.stringify(saved))
   }, [saved])
 
+    useEffect(() => {
+    const moveGlow = (event) => {
+      document.documentElement.style.setProperty('--cursor-x', `${event.clientX}px`)
+      document.documentElement.style.setProperty('--cursor-y', `${event.clientY}px`)
+    }
+    window.addEventListener('pointermove', moveGlow)
+    return () => window.removeEventListener('pointermove', moveGlow)
+  }, [])
+
   useEffect(() => {
     const onHashChange = () => setOpenId(readHash())
     window.addEventListener('hashchange', onHashChange)
