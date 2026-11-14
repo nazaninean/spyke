@@ -15,8 +15,6 @@ function App() {
   const [search, setSearch] = useState('')
   const [topic, setTopic] = useState('All topics')
   const [saved, setSaved] = useState(() => {
-  const [reloadKey, setReloadKey] = useState(0)
-
     try {
       return JSON.parse(localStorage.getItem('spyke-saved')) ?? []
     } catch {
@@ -26,9 +24,11 @@ function App() {
   const [papers, setPapers] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const [openId, setOpenId] = useState(readHash)
+  const [reloadKey, setReloadKey] = useState(0)
   const [weekCount, setWeekCount] = useState(null)
   const [updatedAt, setUpdatedAt] = useState(null)
+  const [openId, setOpenId] = useState(readHash)
+  
 
   useEffect(() => {
     const trimmed = query.trim()
