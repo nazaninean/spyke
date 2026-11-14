@@ -68,6 +68,11 @@ function parseArticle(article, topic) {
     lookedAt: shorten(lookedAt),
     found: shorten(found),
     abstract: parts,
+        conclusion: pick(['CONCLUSIONS', 'CONCLUSION', 'INTERPRETATION']) ?? '',
+    limitations: parts.find((part) => part.label.includes('LIMITATION'))?.text ?? '',
+    doi:
+      [...article.querySelectorAll('ArticleId')].find((node) => node.getAttribute('IdType') === 'doi')
+        ?.textContent ?? '',
     readTime: Math.max(1, Math.round(fullText.split(/\s+/).length / 200)),
   }
 }
