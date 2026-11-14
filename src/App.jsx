@@ -43,6 +43,17 @@ function App() {
     }
   }, [topic, search])
 
+    useEffect(() => {
+    const onKeyDown = (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        document.querySelector('input')?.focus()
+      }
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
+
   const changeTopic = (next) => {
     setTopic(next)
     setLoading(true)
