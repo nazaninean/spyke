@@ -170,4 +170,19 @@
   @keyframes skeleton-pulse { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
   @media (prefers-reduced-motion: reduce) { .paper-card.skeleton .paper-content > * { animation: none; } }
   @media (max-width: 760px) { .source-links { flex-wrap: wrap; } }
+
+  .detail-body,
+.detail-body > .deep-dive,
+.detail-body > .source-panel,
+.detail-body > .source-note,
+.detail-body > .detail-actions {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.detail-body .deep-dive-content p {
+  max-width: 75ch;
+}
 }
