@@ -3,14 +3,18 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Feed from './components/Feed'
+import StudyPage from './components/StudyPage'
 import { fetchPapers } from './pubmed'
+
+const readHash = () =>
+  window.location.hash.startsWith('#study-') ? window.location.hash.slice(7) : null
 
 function App() {
   const [showSaved, setShowSaved] = useState(false)
   const [query, setQuery] = useState('')
   const [search, setSearch] = useState('')
   const [topic, setTopic] = useState('All topics')
-    const [saved, setSaved] = useState(() => {
+  const [saved, setSaved] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem('spyke-saved')) ?? []
     } catch {
@@ -20,6 +24,7 @@ function App() {
   const [papers, setPapers] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [openId, setOpenId] = useState(readHash)
 
   useEffect(() => {
     const trimmed = query.trim()
@@ -49,7 +54,7 @@ function App() {
     }
   }, [topic, search])
 
-    useEffect(() => {
+  useEffect(() => {
     const onKeyDown = (event) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
         event.preventDefault()
@@ -60,14 +65,39 @@ function App() {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [])
 
-    useEffect(() => {
+  useEffect(() => {
     localStorage.setItem('spyke-saved', JSON.stringify(saved))
   }, [saved])
+
+  useEffect(() => {
+    const onHashChange = () => setOpenId(readHash())
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
 
   const changeTopic = (next) => {
     setTopic(next)
     setLoading(true)
     setError('')
+  }
+
+  const openStudy = (id) => {
+    window.location.hash = `study-${id}`
+    window.scrollTo(0, 0)
+  }
+
+  const closeStudy = () => {
+    window.location.hash = ''
+  }
+
+  const goLatest = () => {
+    setShowSaved(false)
+    closeStudy()
+  }
+
+  const goSaved = () => {
+    setShowSaved(true)
+    closeStudy()
   }
 
   const isSaved = (id) => saved.some((paper) => paper.id === id)
@@ -83,6 +113,8 @@ function App() {
     ? saved.filter((paper) => topic === 'All topics' || paper.topic === topic)
     : papers
 
+  const study = openId ? [...papers, ...saved].find((paper) => paper.id === openId) : null
+
   return (
     <main className="min-h-screen">
       <div className="cursor-glow" aria-hidden="true" />
@@ -91,22 +123,33 @@ function App() {
       <Header
         showSaved={showSaved}
         savedCount={saved.length}
-        onLatest={() => setShowSaved(false)}
-        onSaved={() => setShowSaved(true)}
+        onLatest={goLatest}
+        onSaved={goSaved}
       />
-      <Hero query={query} onQueryChange={setQuery} />
-      <Feed
-        papers={visible}
-        topic={topic}
-        onTopicChange={changeTopic}
-        showSaved={showSaved}
-        query={search}
-        loading={loading}
-        error={error}
-        isSaved={isSaved}
-        onToggleSaved={toggleSaved}
-        onOpen={() => {}}
-      />
+      {openId ? (
+        <StudyPage
+          paper={study}
+          isSaved={study ? isSaved(study.id) : false}
+          onToggleSaved={toggleSaved}
+          onBack={closeStudy}
+        />
+      ) : (
+        <>
+          <Hero query={query} onQueryChange={setQuery} />
+          <Feed
+            papers={visible}
+            topic={topic}
+            onTopicChange={changeTopic}
+            showSaved={showSaved}
+            query={search}
+            loading={loading}
+            error={error}
+            isSaved={isSaved}
+            onToggleSaved={toggleSaved}
+            onOpen={openStudy}
+          />
+        </>
+      )}
       <Footer />
     </main>
   )
