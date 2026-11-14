@@ -15,6 +15,8 @@ function App() {
   const [search, setSearch] = useState('')
   const [topic, setTopic] = useState('All topics')
   const [saved, setSaved] = useState(() => {
+  const [reloadKey, setReloadKey] = useState(0)
+
     try {
       return JSON.parse(localStorage.getItem('spyke-saved')) ?? []
     } catch {
@@ -57,7 +59,7 @@ function App() {
     return () => {
       cancelled = true
     }
-  }, [topic, search])
+  }, [topic, search, reloadKey])
 
   useEffect(() => {
     const onKeyDown = (event) => {
@@ -99,6 +101,20 @@ function App() {
     setTopic(next)
     setLoading(true)
     setError('')
+  }
+
+  const retry = () => {
+    setLoading(true)
+    setError('')
+    setReloadKey((n) => n + 1)
+  }
+
+  const reset = () => {
+    if (topic !== 'All topics' || search !== '') setLoading(true)
+    setQuery('')
+    setSearch('')
+    setTopic('All topics')
+    setShowSaved(false)
   }
 
   const openStudy = (id) => {
@@ -171,6 +187,8 @@ function App() {
             isSaved={isSaved}
             onToggleSaved={toggleSaved}
             onOpen={openStudy}
+            onRetry={retry}
+            onReset={reset}
           />
         </>
       )}
