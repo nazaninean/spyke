@@ -1,15 +1,53 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Feed from './components/Feed'
-import { SAMPLE_PAPERS } from './samplePapers'
+import { fetchPapers } from './pubmed'
 
 function App() {
   const [showSaved, setShowSaved] = useState(false)
   const [query, setQuery] = useState('')
+  const [search, setSearch] = useState('')
   const [topic, setTopic] = useState('All topics')
   const [saved, setSaved] = useState([])
+  const [papers, setPapers] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    const trimmed = query.trim()
+    if (trimmed === search) return
+    const timer = setTimeout(() => {
+      setLoading(true)
+      setError('')
+      setSearch(trimmed)
+    }, 450)
+    return () => clearTimeout(timer)
+  }, [query, search])
+
+  useEffect(() => {
+    let cancelled = false
+    fetchPapers(topic, search)
+      .then((result) => {
+        if (!cancelled) setPapers(result)
+      })
+      .catch(() => {
+        if (!cancelled) setError('Could not load studies. Please try again.')
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [topic, search])
+
+  const changeTopic = (next) => {
+    setTopic(next)
+    setLoading(true)
+    setError('')
+  }
 
   const isSaved = (id) => saved.some((paper) => paper.id === id)
 
@@ -20,8 +58,9 @@ function App() {
         : [paper, ...items],
     )
 
-  const source = showSaved ? saved : SAMPLE_PAPERS
-  const visible = source.filter((paper) => topic === 'All topics' || paper.topic === topic)
+  const visible = showSaved
+    ? saved.filter((paper) => topic === 'All topics' || paper.topic === topic)
+    : papers
 
   return (
     <main className="min-h-screen">
@@ -38,9 +77,11 @@ function App() {
       <Feed
         papers={visible}
         topic={topic}
-        onTopicChange={setTopic}
+        onTopicChange={changeTopic}
         showSaved={showSaved}
-        query={query}
+        query={search}
+        loading={loading}
+        error={error}
         isSaved={isSaved}
         onToggleSaved={toggleSaved}
         onOpen={() => {}}
