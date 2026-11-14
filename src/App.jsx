@@ -10,7 +10,13 @@ function App() {
   const [query, setQuery] = useState('')
   const [search, setSearch] = useState('')
   const [topic, setTopic] = useState('All topics')
-  const [saved, setSaved] = useState([])
+    const [saved, setSaved] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('spyke-saved')) ?? []
+    } catch {
+      return []
+    }
+  })
   const [papers, setPapers] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
