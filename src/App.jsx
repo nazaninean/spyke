@@ -25,7 +25,8 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [openId, setOpenId] = useState(readHash)
-    const [weekCount, setWeekCount] = useState(null)
+  const [weekCount, setWeekCount] = useState(null)
+  const [updatedAt, setUpdatedAt] = useState(null)
 
   useEffect(() => {
     const trimmed = query.trim()
@@ -42,8 +43,11 @@ function App() {
     let cancelled = false
     fetchPapers(topic, search)
       .then((result) => {
-        if (!cancelled) setPapers(result)
-      })
+        if (!cancelled) {
+          setPapers(result)
+          setUpdatedAt(new Date())
+        }
+      })      
       .catch(() => {
         if (!cancelled) setError('Could not load studies. Please try again.')
       })
@@ -131,6 +135,10 @@ function App() {
 
   const study = openId ? [...papers, ...saved].find((paper) => paper.id === openId) : null
 
+  const updatedLabel = updatedAt
+    ? updatedAt.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+    : null
+    
   return (
     <main className="min-h-screen">
       <div className="cursor-glow" aria-hidden="true" />
@@ -151,7 +159,7 @@ function App() {
         />
       ) : (
         <>
-          <Hero query={query} onQueryChange={setQuery} weekCount={weekCount} />
+          <Hero query={query} onQueryChange={setQuery} weekCount={weekCount} updatedLabel={updatedLabel} />
           <Feed
             papers={visible}
             topic={topic}
