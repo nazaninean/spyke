@@ -67,7 +67,7 @@ function parseArticle(article, topic) {
     title,
     lookedAt: shorten(lookedAt),
     found: shorten(found),
-    abstract: fullText,
+    abstract: parts,
     readTime: Math.max(1, Math.round(fullText.split(/\s+/).length / 200)),
   }
 }
