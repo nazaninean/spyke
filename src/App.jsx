@@ -60,6 +60,10 @@ function App() {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [])
 
+    useEffect(() => {
+    localStorage.setItem('spyke-saved', JSON.stringify(saved))
+  }, [saved])
+
   const changeTopic = (next) => {
     setTopic(next)
     setLoading(true)
